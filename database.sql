@@ -1,50 +1,56 @@
+DROP DATABASE IF EXISTS EASYGAME_SMARTFARM;
+
 CREATE DATABASE EASYGAME_SMARTFARM;
 USE EASYGAME_SMARTFARM;
 
 CREATE TABLE USER (
-	UserID int not null AUTO_INCREMENT,
-	gioi_tinh varchar(3) check (gioi_tinh='nam' OR gioi_tinh='nu'),
-	email varchar(255),
-	Ho_ten_dem varchar(255),
-	Ten varchar(255),
-	SDT number(10),
-	primary key (UserID)
-);
+    UserID INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    fname VARCHAR(255) DEFAULT NULL,
+    lname VARCHAR(255) DEFAULT NULL,
+    gender BOOLEAN DEFAULT NULL,
+    phone_number VARCHAR(10) DEFAULT NULL,
+    _password VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (UserID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table DEVICE (
-	DeviceID int not null AUTO_INCREMENT,
-	Tinh_trang varchar(255),
-	Mo_ta varchar(255),
-	Trang_thai bool,
-	Thong_so_do_duoc number,
-	Ten varchar(255),
-	Cong_dung VARCHAR(255),
-	PRIMARY key (DeviceID),
-	FOREIGN key (GardenID) REFERENCES GARDEN(GardenID)
-);
+CREATE TABLE GARDEN (
+    GardenID INT NOT NULL AUTO_INCREMENT,
+    Vi_tri VARCHAR(255) DEFAULT NULL,
+    So_cay INT DEFAULT NULL,
+    Che_do_quan_ly VARCHAR(255) DEFAULT NULL,
+    Tinh_trang VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (GardenID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table GARDEN (
-	GardenID int not null AUTO_INCREMENT,
-	So_cay int, 
-	Vi_tri varchar(255),
-	Che_do_quan_ly VARCHAR(255),
-	Tinh_trang VARCHAR(255),
-	PRIMARY KEY (GardenID),
-	
-);
+CREATE TABLE DEVICE (
+    DeviceID INT NOT NULL AUTO_INCREMENT,
+    GardenID INT NOT NULL,
+    Ten VARCHAR(255) DEFAULT NULL,
+    Tinh_trang VARCHAR(255) DEFAULT NULL,
+    Trang_thai BOOLEAN DEFAULT NULL,
+    Thong_so_do_duoc INT DEFAULT NULL,
+    Cong_dung VARCHAR(255) DEFAULT NULL,
+    Mo_ta VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (DeviceID),
+    FOREIGN KEY (GardenID) REFERENCES GARDEN(GardenID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE table PLANT (
-	PlantID int not null AUTO_INCREMENT,
-	Ten VARCHAR(255),
-	Tinh_trang VARCHAR(255),
-	So_luong int,
-	Muc_phat_trien VARCHAR(255),
-	Ngay_trong date,
- 	Ghi_chu VARCHAR(255),
-	def_Cuong_do_anh_sang float, -- def: cac thong so mac dinh cua cay
-	def_Nhiet_do float,
-	def_Do_am_dat float,
-	def_Do_am_khong_khi float,
-	PRIMARY KEY (PlantID),
-	FOREIGN key (GardenID) REFERENCES GARDEN(GardenID)
-);
+CREATE TABLE PLANT (
+    PlantID INT NOT NULL AUTO_INCREMENT,
+    GardenID INT NOT NULL,
+    Ten VARCHAR(255) DEFAULT NULL,
+    Tinh_trang VARCHAR(255) DEFAULT NULL,
+    So_luong INT DEFAULT NULL,
+    Muc_phat_trien VARCHAR(255) DEFAULT NULL,
+    Ngay_trong DATE DEFAULT NULL,
+    Ghi_chu VARCHAR(255) DEFAULT NULL,
+    def_Cuong_do_anh_sang FLOAT DEFAULT NULL,
+    def_Nhiet_do FLOAT DEFAULT NULL,
+    def_Do_am_dat FLOAT DEFAULT NULL,
+    def_Do_am_khong_khi FLOAT DEFAULT NULL,
+    PRIMARY KEY (PlantID),
+    FOREIGN KEY (GardenID) REFERENCES GARDEN(GardenID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+insert into USER(email, _password) values ('admin', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257')
