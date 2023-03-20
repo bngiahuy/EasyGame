@@ -41,7 +41,10 @@ CREATE table PLANT (
 	Muc_phat_trien VARCHAR(255),
 	Ngay_trong date,
  	Ghi_chu VARCHAR(255),
+	def_Cuong_do_anh_sang float, -- def: cac thong so mac dinh cua cay
+	def_Nhiet_do float,
+	def_Do_am_dat float,
+	def_Do_am_khong_khi float,
 	PRIMARY KEY (PlantID),
 	FOREIGN key (GardenID) REFERENCES GARDEN(GardenID)
 );
-
