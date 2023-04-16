@@ -32,19 +32,7 @@ CREATE TABLE AUTO (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 INSERT INTO AUTO VALUES (25, 95, 200, 80);
 
-CREATE TABLE `display` (
-  `Temperature1` int(11) NOT NULL,
-  `Temperature2` int(11) NOT NULL,
-  `Humidity1` int(11) NOT NULL,
-  `Humidity2` int(11) NOT NULL,
-  `Light1` int(11) NOT NULL,
-  `Light2` int(11) NOT NULL,
-  `Mois1` int(11) NOT NULL,
-  `Mois2` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `display` (`Temperature1`, `Temperature2`, `Humidity1`, `Humidity2`, `Light1`, `Light2`, `Mois1`, `Mois2`) VALUES
-(30, 35, 90, 20, 1000, 10, 100, 10);
 
 CREATE TABLE GARDEN (
     GardenID INT NOT NULL AUTO_INCREMENT,
@@ -74,6 +62,39 @@ INSERT INTO DEVICE VALUES (1, 1, "TEMP_01", null, null, "Do nhiet do garden 1", 
 INSERT INTO DEVICE VALUES (2, 1, "MOIS_01", null, null, "Do do am dat garden 1", null);
 INSERT INTO DEVICE VALUES (3, 1, "HUMID_01", null, null, "Do do am khong khi garden 1", null);
 INSERT INTO DEVICE VALUES (4, 1, "LIGHT_01", null, null, "Do cuong do anh sang garden 1", null);
+
+CREATE TABLE T_TEMPERATURE (
+  `id` int(11) NOT NULL,
+  `value` int(11) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO T_TEMPERATURE VALUES
+(0, 30, '2023-04-03 08:53:27'),
+(1, 30, '2023-04-03 08:53:32');
+
+CREATE TABLE T_MOISTURE (
+  `id` int(11) NOT NULL,
+  `value` int(11) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO T_MOISTURE VALUES (0, 30, '2023-04-03 08:53:27'), (1, 30, '2023-04-03 08:53:32');
+
+CREATE TABLE T_LIGHT (
+  `id` int(11) NOT NULL,
+  `value` int(11) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO T_LIGHT (`id`, `value`, `date`) VALUES
+(0, 30, '2023-01-03 08:53:27'),
+(1, 30, '2023-01-03 08:53:27');
+
+CREATE TABLE T_HUMID (
+  `id` int(11) NOT NULL,
+  `value` int(11) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO T_HUMID VALUES (0, 30, '2023-04-03 08:53:27'), (1, 30, '2023-04-03 08:53:32');
+
 
 
 

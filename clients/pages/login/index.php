@@ -1,6 +1,6 @@
 <?php
 ob_start();
-include("../../language/config.php");
+include("/XAMPP/htdocs/EasyGame/servers/language/config.php");
 ?>
 <html>
 

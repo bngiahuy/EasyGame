@@ -1,10 +1,10 @@
 <?php
-include("../../language/config.php");
+include("/XAMPP/htdocs/EasyGame/servers/language/config.php");
 // include('login/kiemtradangnhap.php'); 
 if (!isset($_SESSION["username"])) {
     header("Location: ../../index.php");
 }
-include("../../../servers/connection.php");
+include("/XAMPP/htdocs/EasyGame/servers/connection.php");
 $query = "SELECT * from AUTO";
 $result = $conn->query($query);
 while ($row = $result->fetch_assoc()) {
@@ -176,7 +176,7 @@ if (isset($_POST['offall'])) {
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>&nbsp; <?php echo $lang1['admin'] ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="login/dangxuat.php"><?php echo $lang2['logout'] ?></a></li>
+                                <li><a href="dangxuat.php"><?php echo $lang2['logout'] ?></a></li>
 
                             </ul>
                         </li>
@@ -207,16 +207,16 @@ if (isset($_POST['offall'])) {
                     <h3><?php echo $lang1['thongsomoitruong'] ?></h3>
                 </li>
                 <li>
-                    <a href="garden1/temp/in_temp.php"><span class="fas fa-temperature-low" style="color: green; font-size:15px;"></span>&nbsp; <?php echo $lang1['nhietdo'] ?></a>
+                    <a href="../watch_temp/index.php"><span class="fas fa-temperature-low" style="color: green; font-size:15px;"></span>&nbsp; <?php echo $lang1['nhietdo'] ?></a>
                 </li>
                 <li>
-                    <a href="garden1/humidity/in_temp.php"><span class="fas fa-cloud-sun-rain" style="color: green; font-size: 15px;"></span>&nbsp; <?php echo $lang1['doamkhongkhi'] ?></a>
+                    <a href="../watch_humid/index.php"><span class="fas fa-cloud-sun-rain" style="color: green; font-size: 15px;"></span>&nbsp; <?php echo $lang1['doamkhongkhi'] ?></a>
                 </li>
                 <li>
-                    <a href="garden1/mois/in_temp.php"><span class="fas fa-water" style="color: green; font-size: 15px;"></span>&nbsp; <?php echo $lang1['doamdat'] ?></a>
+                    <a href="../watch_mois/index.php"><span class="fas fa-water" style="color: green; font-size: 15px;"></span>&nbsp; <?php echo $lang1['doamdat'] ?></a>
                 </li>
                 <li>
-                    <a href="garden1/light/in_temp.php"><span class="fas fa-sun" style="color: green; font-size: 15px;"></span>&nbsp; <?php echo $lang1['cuongdosang'] ?></a>
+                    <a href="../watch_light/index.php"><span class="fas fa-sun" style="color: green; font-size: 15px;"></span>&nbsp; <?php echo $lang1['cuongdosang'] ?></a>
                 </li>
             </ul>
         </div>
