@@ -309,13 +309,15 @@ if (!isset($_SESSION["username"])) {
                 </div>
 
                 <script>
+                    const char_data_path = "/EasyGame/clients/pages/";
+
                     function refreshData() {
                         $('#attending_tbl').load('one_day_temp.php');
                     }
 
                     function get_day_stat() {
                         $.ajax({
-                            url: 'get_day_stat.php',
+                            url: char_data_path + 'get_day_stat.php?table=T_TEMP',
                             type: 'POST',
                             data: {
                                 name: 'test'
@@ -407,7 +409,7 @@ if (!isset($_SESSION["username"])) {
                         // var series; // define series variable in a higher scope
 
 
-                        const char_data_path = "/EasyGame/clients/pages/";
+
                         $.ajax({
                             url: char_data_path + "chart_data.php?table=T_TEMP&re=1",
                             type: 'get',

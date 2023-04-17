@@ -407,7 +407,7 @@ if (!isset($_SESSION["username"])) {
 
                         const char_data_path = "/EasyGame/clients/pages/";
                         $.ajax({
-                            url: char_data_path + "chart_data.php?table=T_TEMP&re=1",
+                            url: char_data_path + "chart_data.php?table=T_MOISTURE&re=1",
                             type: 'get',
                             dataType: 'json',
                             success: function(json) {
