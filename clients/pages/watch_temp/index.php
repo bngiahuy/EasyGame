@@ -35,22 +35,25 @@ if (!isset($_SESSION["username"])) {
     <script src="../../base/js/guage/raphael-2.1.4.min.js"></script>
     <script src="../../base/js/guage/justgage-1.1.0.min.js"></script>
 
-    <!-- Menu Toggle Script -->
-    <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
-
-    <!-- Chart js library -->
-    <script src="../../base/js/chart/Chart.js"></script>
-
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-
-    <!-- Slider -->
     <script src="../../base/js/slider/freshslider.min.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Chart js library -->
+    <script src="../../base/js/chart/Chart.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
+
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <!-- Menu Toggle Script -->
+    <!-- <script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script> -->
+    <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+
+
 
     <style>
         * {
@@ -400,15 +403,38 @@ if (!isset($_SESSION["username"])) {
                             }
                         });
 
+
+                        var series; // define series variable in a higher scope
+
+                        // $.ajax({
+                        //     url: "./data.php?re=1",
+                        //     type: 'get',
+                        //     dataType: 'json',
+                        //     beforeSend: function() {
+                        //         console.log("Before send request");
+                        //     },
+                        //     success: function(x) {
+                        //         console.log("Success function executed");
+                        //         console.log(x);
+                        //     },
+                        //     error: function(jqXHR, textStatus, errorThrown) {
+                        //         console.log("Error occurred: " + textStatus, errorThrown);
+                        //     },
+                        //     complete: function() {
+                        //         console.log("Request completed");
+                        //     }
+                        // });
+
+
                         $.ajax({
-                            url: "getData.php?re=1",
-                            type: 'GET',
+                            url: "./data.php?re=1",
+                            type: 'get',
                             dataType: 'json',
                             success: function(json) {
+                                // console.log(json);
+                                // console.log(data);
                                 Highcharts.chart('container', {
-
                                     chart: {
-                                        //renderTo: 'container',
                                         events: {
                                             load: function() {
                                                 series = this.series[0];
@@ -420,7 +446,6 @@ if (!isset($_SESSION["username"])) {
                                             fontFamily: 'Arial, sans-serif'
                                         }
                                     },
-                                    // time: {useUTC: false},
                                     exporting: {
                                         csv: {
                                             dateFormat: '%H:%M:%S %d/%m/%Y',
@@ -440,15 +465,12 @@ if (!isset($_SESSION["username"])) {
                                     },
                                     plotOptions: {
                                         spline: {
-                                            //lineColor: '#5AE3F8',
                                             lineWidth: 2,
                                         },
                                         series: {
                                             marker: {
                                                 enabled: false,
-                                                /* enabled/disabled the point */
                                             },
-
                                         },
                                     },
                                     title: {
@@ -473,8 +495,6 @@ if (!isset($_SESSION["username"])) {
                                         title: {
                                             text: null,
                                         },
-                                        //gridLineWidth: 1,
-
                                     },
                                     yAxis: {
                                         type: 'linear',
@@ -491,23 +511,23 @@ if (!isset($_SESSION["username"])) {
                                         name: '<?php echo $lang8['doamhientai'] ?>',
                                         data: json
                                     }]
-                                })
+                                });
                             }
                         });
 
                         var vals;
                         var time_temp;
-                        $.get("getData.php?re=1", function(json) {
+                        $.get("data.php?re=2", function(json) {
                             vals = json.split(",");
                             time_temp = parseInt(vals[0]);
                         });
 
                         setInterval(function() {
-                            $.get("getData.php?re=1", function(json) {
+                            $.get("data.php?re=2", function(json) {
                                 vals = json.split(",");
                                 var time = parseInt(vals[0]);
                                 var value = parseFloat(vals[1]);
-                                if (get_time() != time) {
+                                if (series && get_time() != time) { // check if series is defined
                                     series.addPoint([time, value], true, false);
                                     set_time(time);
                                     console.log(time);

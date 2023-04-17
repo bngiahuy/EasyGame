@@ -141,7 +141,7 @@ if (!isset($_SESSION["username"])) {
                     <script>
                         var temp = '<?php echo $x; ?>'; //0
                         function get_element() {
-                            $.get("get_temp.php?last=true", function(data) {
+                            $.get("getData.php?last=true", function(data) {
                                 temp = data;
                             });
                         }
@@ -400,7 +400,7 @@ if (!isset($_SESSION["username"])) {
                         });
 
                         $.ajax({
-                            url: "getData.php?re=1",
+                            url: "data.php?re=1",
                             type: 'get',
                             dataType: 'json',
                             success: function(json) {
@@ -496,13 +496,13 @@ if (!isset($_SESSION["username"])) {
 
                         var vals;
                         var time_temp;
-                        $.get("getData.php?re=2", function(json) {
+                        $.get("data.php?re=2", function(json) {
                             vals = json.split(",");
                             time_temp = parseInt(vals[0]);
                         });
 
                         setInterval(function() {
-                            $.get("getData.php?re=2", function(json) {
+                            $.get("data.php?re=2", function(json) {
                                 vals = json.split(",");
                                 var time = parseInt(vals[0]);
                                 var value = parseFloat(vals[1]);

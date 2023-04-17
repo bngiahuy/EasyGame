@@ -406,7 +406,7 @@ if (!isset($_SESSION["username"])) {
                         });
 
                         $.ajax({
-                            url: "getData.php?re1=true",
+                            url: "./data.php?re=1",
                             type: 'get',
                             dataType: 'json',
                             success: function(json) {
@@ -502,13 +502,13 @@ if (!isset($_SESSION["username"])) {
 
                         var vals;
                         var time_temp;
-                        $.get("getData.php?re2=true", function(json) {
+                        $.get("data.php?re=2", function(json) {
                             vals = json.split(",");
                             time_temp = parseInt(vals[0]);
                         });
 
                         setInterval(function() {
-                            $.get("getData.php?re2=true", function(json) {
+                            $.get("data.php?re=2", function(json) {
                                 vals = json.split(",");
                                 var time = parseInt(vals[0]);
                                 var value = parseFloat(vals[1]);
