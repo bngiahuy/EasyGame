@@ -317,7 +317,7 @@ if (!isset($_SESSION["username"])) {
 
                     function get_day_stat() {
                         $.ajax({
-                            url: char_data_path + 'get_day_stat.php?table=T_TEMP',
+                            url: 'get_day_stat.php',
                             type: 'POST',
                             data: {
                                 name: 'test'
