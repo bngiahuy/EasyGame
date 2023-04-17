@@ -260,7 +260,7 @@ if (!isset($_SESSION["username"])) {
                                 echo '</tr>';
                                 echo '</thead>';
                                 echo '<tbody id="attending_tbl">';
-                                // DYNAMIC VALUES                        
+                                // DYNAMIC VALUES
                                 echo '</tbody>';
                                 echo '</table>';
                                 ?>
@@ -312,24 +312,24 @@ if (!isset($_SESSION["username"])) {
                     const char_data_path = "/EasyGame/clients/pages/";
 
                     function refreshData() {
-                        $('#attending_tbl').load('one_day_temp.php');
+                        $('#attending_tbl').load(char_data_path + 'one_day_temp.php', "T_TEMPERATURE");
                     }
 
                     function get_day_stat() {
                         $.ajax({
-                            url: 'get_day_stat.php',
+                            url: char_data_path + 'get_day_stat.php',
                             type: 'POST',
                             data: {
-                                name: 'test'
+                                table: "T_TEMPERATURE"
                             },
                             dataType: 'html',
                             success: function(data) {
                                 var vals = data.split(",");
-                                console.log(vals[0]);
-                                console.log(vals[1]);
-                                console.log(vals[2]);
-                                console.log(vals[3]);
-                                console.log(vals[4]);
+                                // console.log(vals[0]);
+                                // console.log(vals[1]);
+                                // console.log(vals[2]);
+                                // console.log(vals[3]);
+                                // console.log(vals[4]);
                                 document.getElementById("min_temp").innerHTML = vals[0] + "&deg;C";
                                 document.getElementById("min_time").innerHTML = vals[1];
                                 document.getElementById("max_temp").innerHTML = vals[2] + "&deg;C";
@@ -411,7 +411,7 @@ if (!isset($_SESSION["username"])) {
 
 
                         $.ajax({
-                            url: char_data_path + "chart_data.php?table=T_TEMP&re=1",
+                            url: char_data_path + "chart_data.php?table=T_TEMPERATURE&re=1",
                             type: 'get',
                             dataType: 'json',
                             success: function(json) {
@@ -501,13 +501,13 @@ if (!isset($_SESSION["username"])) {
 
                         var vals;
                         var time_temp;
-                        $.get(char_data_path + "chart_data.php?table=T_TEMP&re=2", function(json) {
+                        $.get(char_data_path + "chart_data.php?table=T_TEMPERATURE&re=2", function(json) {
                             vals = json.split(",");
                             time_temp = parseInt(vals[0]);
                         });
 
                         setInterval(function() {
-                            $.get(char_data_path + "chart_data.php?table=T_TEMP&re=2", function(json) {
+                            $.get(char_data_path + "chart_data.php?table=T_TEMPERATURE&re=2", function(json) {
                                 vals = json.split(",");
                                 var time = parseInt(vals[0]);
                                 var value = parseFloat(vals[1]);

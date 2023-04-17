@@ -305,25 +305,28 @@ if (!isset($_SESSION["username"])) {
                 </div>
 
                 <script>
+                    const char_data_path = "/EasyGame/clients/pages/";
+
                     function refreshData() {
-                        $('#attending_tbl').load('one_day_temp.php');
+                        $('#attending_tbl').load(char_data_path + 'one_day_temp.php', "T_HUMID");
+
                     }
 
                     function get_day_stat() {
                         $.ajax({
-                            url: 'get_day_stat.php',
+                            url: char_data_path + 'get_day_stat.php',
                             type: 'POST',
                             data: {
-                                name: 'test'
+                                table: "T_HUMID"
                             },
                             dataType: 'html',
                             success: function(data) {
                                 var vals = data.split(",");
-                                console.log(vals[0]);
-                                console.log(vals[1]);
-                                console.log(vals[2]);
-                                console.log(vals[3]);
-                                console.log(vals[4]);
+                                // console.log(vals[0]);
+                                // console.log(vals[1]);
+                                // console.log(vals[2]);
+                                // console.log(vals[3]);
+                                // console.log(vals[4]);
                                 document.getElementById("min_temp").innerHTML = vals[0] + "%";
                                 document.getElementById("min_time").innerHTML = vals[1];
                                 document.getElementById("max_temp").innerHTML = vals[2] + "%";
@@ -398,7 +401,6 @@ if (!isset($_SESSION["username"])) {
                                 useUTC: false
                             }
                         });
-                        const char_data_path = "/EasyGame/clients/pages/";
 
                         $.ajax({
                             url: char_data_path + "chart_data.php?table=T_HUMID&re=1",
