@@ -404,30 +404,12 @@ if (!isset($_SESSION["username"])) {
                         });
 
 
-                        var series; // define series variable in a higher scope
-
-                        // $.ajax({
-                        //     url: "./data.php?re=1",
-                        //     type: 'get',
-                        //     dataType: 'json',
-                        //     beforeSend: function() {
-                        //         console.log("Before send request");
-                        //     },
-                        //     success: function(x) {
-                        //         console.log("Success function executed");
-                        //         console.log(x);
-                        //     },
-                        //     error: function(jqXHR, textStatus, errorThrown) {
-                        //         console.log("Error occurred: " + textStatus, errorThrown);
-                        //     },
-                        //     complete: function() {
-                        //         console.log("Request completed");
-                        //     }
-                        // });
+                        // var series; // define series variable in a higher scope
 
 
+                        const char_data_path = "/EasyGame/clients/pages/";
                         $.ajax({
-                            url: "./data.php?re=1",
+                            url: char_data_path + "chart_data.php?table=T_TEMP&re=1",
                             type: 'get',
                             dataType: 'json',
                             success: function(json) {
@@ -517,13 +499,13 @@ if (!isset($_SESSION["username"])) {
 
                         var vals;
                         var time_temp;
-                        $.get("data.php?re=2", function(json) {
+                        $.get(char_data_path + "chart_data.php?table=T_TEMP&re=2", function(json) {
                             vals = json.split(",");
                             time_temp = parseInt(vals[0]);
                         });
 
                         setInterval(function() {
-                            $.get("data.php?re=2", function(json) {
+                            $.get(char_data_path + "chart_data.php?table=T_TEMP&re=2", function(json) {
                                 vals = json.split(",");
                                 var time = parseInt(vals[0]);
                                 var value = parseFloat(vals[1]);

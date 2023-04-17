@@ -411,9 +411,9 @@ if (!isset($_SESSION["username"])) {
                                 useUTC: false
                             }
                         });
-
+                        const char_data_path = "/EasyGame/clients/pages/";
                         $.ajax({
-                            url: "data.php?re=1",
+                            url: char_data_path + "chart_data.php?table=T_LIGHT&re=1",
                             type: 'get',
                             dataType: 'json',
                             success: function(json) {
@@ -513,13 +513,13 @@ if (!isset($_SESSION["username"])) {
 
                         var vals;
                         var time_temp;
-                        $.get("data.php?re=2", function(json) {
+                        $.get(char_data_path + "chart_data.php?table=T_LIGHT&re=2", function(json) {
                             vals = json.split(",");
                             time_temp = parseInt(vals[0]);
                         });
 
                         setInterval(function() {
-                            $.get("data.php?re=2", function(json) {
+                            $.get(char_data_path + "chart_data.php?table=T_LIGHT&re=2", function(json) {
                                 vals = json.split(",");
                                 var time = parseInt(vals[0]);
                                 var value = parseFloat(vals[1]);
