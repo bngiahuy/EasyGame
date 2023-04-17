@@ -111,10 +111,10 @@ if (!isset($_SESSION["username"])) {
                 <li>
                     <a href="../watch_temp/index.php"><span class="fas fa-temperature-low" style="color: green;font-size:15px;"></span>&nbsp; <?php echo $lang1['nhietdo'] ?></a>
                 </li>
-                <li>
+                <li id="active">
                     <a href="../watch_humid/index.php"><span class="fas fa-cloud-sun-rain" style="color: green;font-size: 15px;"></span>&nbsp; <?php echo $lang1['doamkhongkhi'] ?></a>
                 </li>
-                <li id="active">
+                <li>
                     <a href="../watch_mois/index.php"><span class="fas fa-water" style="color: green;font-size: 15px;"></span>&nbsp; <?php echo $lang1['doamdat'] ?></a>
                 </li>
                 <li>

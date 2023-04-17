@@ -1,4 +1,5 @@
 <?php
+set_include_path("/XAMPP/htdocs/EasyGame");
 include("../servers/language/config.php");
 ?>
 

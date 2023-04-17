@@ -88,6 +88,7 @@ INSERT INTO T_LIGHT (`id`, `value`, `date`) VALUES
 (0, 30, '2023-01-03 08:53:27'),
 (1, 30, '2023-01-03 08:53:27');
 
+
 CREATE TABLE T_HUMID (
   `id` int(11) NOT NULL,
   `value` int(11) NOT NULL,

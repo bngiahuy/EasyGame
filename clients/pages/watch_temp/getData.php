@@ -16,7 +16,7 @@ if (isset($_GET['connection'])) {
     $result = mysqli_fetch_assoc($result);
     $result = $result['value'];
     echo $result;
-} else if (isset($_GET['re1'])) {
+} else if ($_GET['re'] == 1) {
     $query = " SELECT (UNIX_TIMESTAMP(date)*1000) AS time, IFNULL(value,'null') AS temp FROM T_TEMPERATURE WHERE date BETWEEN '{$start}' AND '{$end}' ORDER BY time";
     $result = mysqli_query($con, $query);
     $total = mysqli_num_rows($result);
@@ -34,7 +34,7 @@ if (isset($_GET['connection'])) {
     } else {
         echo "[[],[]]";
     }
-} else if (isset($_GET['re2'])) {
+} else if ($_GET['re'] == 2) {
     $query = " SELECT (UNIX_TIMESTAMP(date)*1000) AS time, IFNULL(value,'null') AS temp FROM T_TEMPERATURE WHERE date BETWEEN '{$start}' AND '{$end}' ORDER BY time DESC LIMIT 0,1";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_assoc($result);

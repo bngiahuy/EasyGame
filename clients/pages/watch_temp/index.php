@@ -41,6 +41,7 @@ if (!isset($_SESSION["username"])) {
 
     <!-- Chart js library -->
     <script src="../../base/js/chart/Chart.js"></script>
+
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -400,8 +401,8 @@ if (!isset($_SESSION["username"])) {
                         });
 
                         $.ajax({
-                            url: "getData.php?re1=true",
-                            type: 'get',
+                            url: "getData.php?re=1",
+                            type: 'GET',
                             dataType: 'json',
                             success: function(json) {
                                 Highcharts.chart('container', {
@@ -496,13 +497,13 @@ if (!isset($_SESSION["username"])) {
 
                         var vals;
                         var time_temp;
-                        $.get("getData.php?re2=true", function(json) {
+                        $.get("getData.php?re=1", function(json) {
                             vals = json.split(",");
                             time_temp = parseInt(vals[0]);
                         });
 
                         setInterval(function() {
-                            $.get("getData.php?re2=true", function(json) {
+                            $.get("getData.php?re=1", function(json) {
                                 vals = json.split(",");
                                 var time = parseInt(vals[0]);
                                 var value = parseFloat(vals[1]);

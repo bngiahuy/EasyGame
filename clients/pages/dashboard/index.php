@@ -171,7 +171,7 @@ if (isset($_POST['offall'])) {
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="template1.php"><?php echo $lang1['vuon1'] ?></a></li>
+                        <li class="active"><a href="index.php"><?php echo $lang1['vuon1'] ?></a></li>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>&nbsp; <?php echo $lang1['admin'] ?> <span class="caret"></span></a>
@@ -200,7 +200,7 @@ if (isset($_POST['offall'])) {
                     <h3><?php echo $lang1['thaotac'] ?></h3>
                 </li>
                 <li id="active">
-                    <a href="template1.php"><span class="fas fa-sync" style="color: green"></span>&nbsp; <?php echo $lang1['dieukhienthietbi'] ?></a>
+                    <a href="index.php"><span class="fas fa-sync" style="color: green"></span>&nbsp; <?php echo $lang1['dieukhienthietbi'] ?></a>
                 </li>
 
                 <li>
@@ -362,7 +362,7 @@ if (isset($_POST['offall'])) {
                 <hr class="style-four">
                 <div class="row">
 
-                    <form action="template1.php" method="POST">
+                    <form action="index.php" method="POST">
                         <button style="width:90px;height:30px;" type="submit" class="btn btn-primary btn-sm" name="ON1" id="chonchedo">Thủ công</button>
                     </form>
                     <br><br><br>
@@ -425,7 +425,7 @@ if (isset($_POST['offall'])) {
                                                     <?php echo $lang3['dkrc'] ?>
                                                 </td>
                                                 <td class="vert-align">
-                                                    <form action="template1.php" method="POST">
+                                                    <form action="index.php" method="POST">
                                                         <button type="submit" class="btn btn-success btn-sm" name="rc" id="rc1"><?php echo $lang4['batthietbi'] ?></button>
                                                 </td>
                                             </tr>
