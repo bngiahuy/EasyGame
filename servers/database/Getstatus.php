@@ -50,6 +50,6 @@ while ($row = $result->fetch_assoc()) {
 
 
 
-echo $den1 . $ps1 . $bom1 . $rc1 . $den2 . $ps2 . $bom2 . $rc2 . $mode1 . $mode2 . '?' . $t1 . ';' . $h1 . ';' . $l1 . ';' . $m1 . ',' . $t2 . ';' . $h2 . ';' . $l2 . ';' . $m2 . ';' . $mode1 . ';' . $mode2;
+// echo $den1 . $ps1 . $bom1 . $rc1 . $den2 . $ps2 . $bom2 . $rc2 . $mode1 . $mode2 . '?' . $t1 . ';' . $h1 . ';' . $l1 . ';' . $m1 . ',' . $t2 . ';' . $h2 . ';' . $l2 . ';' . $m2 . ';' . $mode1 . ';' . $mode2;
 
 echo $den1 . $ps1 . $bom1 . $rc1 . '?' . $t1 . ';' . $h1 . ';' . $l1 . ';' . $m1;
