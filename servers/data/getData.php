@@ -48,30 +48,30 @@
         $gardenID_example = 1;
         
 
-        $sql = "INSERT INTO DEVICE_DATA VALUES ()";
+        // $sql = "INSERT INTO DEVICE_DATA VALUES ()";
         
-        $sql = "INSERT INTO temperature1 (value,date) VALUES ('".$x6."','".$d."')"; 
+        $sql = "INSERT INTO T_TEMPERATURE (value,date) VALUES ('".$x6."','".$d."')"; 
         if ($conn->query($sql) === TRUE) {
             echo "OK";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         };
 
-        $sql = "INSERT INTO humidity1 (value,date) VALUES ('".$x7."','".$d."')"; 
+        $sql = "INSERT INTO T_HUMID (value,date) VALUES ('".$x7."','".$d."')"; 
         if ($conn->query($sql) === TRUE) {
             echo "OK";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         };
 
-        $sql = "INSERT INTO light1 (value,date) VALUES ('".$x8."','".$d."')"; 
+        $sql = "INSERT INTO T_LIGHT (value,date) VALUES ('".$x8."','".$d."')"; 
         if ($conn->query($sql) === TRUE) {
             echo "OK";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         };
 
-        $sql = "INSERT INTO mois1 (value,date) VALUES ('".$x9."','".$d."')"; 
+        $sql = "INSERT INTO T_MOISTURE (value,date) VALUES ('".$x9."','".$d."')"; 
         if ($conn->query($sql) === TRUE) {
             echo "OK";
         } else {
@@ -79,4 +79,3 @@
         };
 	}
 	$conn->close();
-?>

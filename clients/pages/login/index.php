@@ -1,6 +1,7 @@
 <?php
 ob_start();
-include("/XAMPP/htdocs/EasyGame/servers/language/config.php");
+set_include_path("/XAMPP/htdocs/EasyGame/");
+include("servers/language/config.php");
 ?>
 <html>
 
@@ -114,7 +115,7 @@ include("/XAMPP/htdocs/EasyGame/servers/language/config.php");
 
 <body>
 	<?php
-	require_once("../../../servers/connection.php");
+	require_once("servers/connection.php");
 	if (isset($_POST["dangnhap"])) {
 		$username = $_POST["username"];
 		$password = $_POST["password"];
