@@ -1,9 +1,6 @@
 <?php
-// session_start();
 set_include_path($_SERVER['DOCUMENT_ROOT'] . "/EasyGame");
 include("servers/language/config.php");
-// set_include_path("/XAMPP/htdocs/EasyGame");
-// echo "<script>alert('" . $_SESSION["username"] . "');</script>";
 if (!isset($_SESSION["username"])) {
     header("Location: http://localhost/EasyGame/clients/index.php");
 }
