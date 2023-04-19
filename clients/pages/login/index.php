@@ -1,6 +1,8 @@
 <?php
 ob_start();
 set_include_path($_SERVER['DOCUMENT_ROOT'] . "/EasyGame");
+// set_include_path("/XAMPP/htdocs/EasyGame");
+
 include("servers/language/config.php");
 ?>
 <html>
@@ -136,8 +138,8 @@ include("servers/language/config.php");
 			} else {
 				$_SESSION['username'] = $username;
 				$_SESSION['password'] = $password;
-				header('Location: ../dashboard/index.php');
-				exit;
+				header('Location: http://localhost/EasyGame/clients/pages/dashboard/');
+				// exit;
 			}
 		}
 	}
