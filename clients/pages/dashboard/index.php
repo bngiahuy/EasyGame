@@ -1,10 +1,10 @@
 <?php
-include("/XAMPP/htdocs/EasyGame/servers/language/config.php");
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/EasyGame");
 // include('login/kiemtradangnhap.php'); 
 if (!isset($_SESSION["username"])) {
     header("Location: ../../index.php");
 }
-include("/XAMPP/htdocs/EasyGame/servers/connection.php");
+include("servers/connection.php");
 $query = "SELECT * from AUTO";
 $result = $conn->query($query);
 while ($row = $result->fetch_assoc()) {

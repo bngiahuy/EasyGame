@@ -1,5 +1,6 @@
 <?php
-set_include_path("/XAMPP/htdocs/EasyGame");
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/EasyGame");
+
 include "servers/language/config.php";
 if (!isset($_SESSION["username"])) {
     header("Location: ../dashboard/index.php");

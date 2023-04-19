@@ -1,6 +1,6 @@
 <?php
 ob_start();
-set_include_path("/XAMPP/htdocs/EasyGame/");
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/EasyGame");
 include("servers/language/config.php");
 ?>
 <html>

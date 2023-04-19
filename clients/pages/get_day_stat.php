@@ -1,5 +1,6 @@
 <?php
-set_include_path("/XAMPP/htdocs/EasyGame");
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/EasyGame");
+
 include_once 'servers/connection.php';
 if (isset($_POST['table'])) {
     $table = $_POST['table'];

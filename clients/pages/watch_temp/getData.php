@@ -1,5 +1,6 @@
 <?php
-set_include_path("/XAMPP/htdocs/EasyGame");
+set_include_path($_SERVER['DOCUMENT_ROOT'] . "/EasyGame");
+
 include_once("servers/connection.php");
 $start = date("Y-m-d 00:00:00");
 $end = date("Y-m-d 23:59:59");
