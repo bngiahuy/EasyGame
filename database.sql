@@ -16,11 +16,11 @@ CREATE TABLE USER (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE CONTROL (
-  'Manual_mode' bit(1) not null,
+  `Manual_mode` bit(1) not null,
   `Den1` bit(1) NOT NULL,
   `Bom1` bit(1) NOT NULL,
   `Ps1` bit(1) NOT NULL,
-  `Rc1` bit(1)EAN NOT NULL
+  `Rc1` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO CONTROL VALUES (0,0,0,0,0);
