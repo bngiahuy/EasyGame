@@ -1,7 +1,6 @@
 <?php
-$lang= $arrayName = array
-(
-  "title"       => "Vườn rau tự động ứng dụng IOT", 
+$lang = $arrayName = array(
+  "title"       => "Vườn rau tự động ứng dụng IOT",
   "home"        => "Trang chủ",
   "login"       => "Đăng nhập",
   "dangnhap"    => "Đăng nhập",
@@ -10,8 +9,7 @@ $lang= $arrayName = array
   "login2"      => "ĐĂNG NHẬP",
 );
 
-$lang1= $arrayName = array
-(
+$lang1 = $arrayName = array(
   "vuon1"             => "Node 1",
   "admin"             => "Tài khoản",
   "hethong"           => "HỆ THỐNG GIÁM SÁT",
@@ -27,26 +25,24 @@ $lang1= $arrayName = array
   "schedule"          => "Cài đặt thời gian",
 );
 
-$lang2= $arrayName = array
-(
+$lang2 = $arrayName = array(
   "nhietdo"     => "NHIỆT ĐỘ",
   "mua"         => "MƯA",
   "amkhongkhi"  => "KHÔNG KHÍ",
-  "amdat"       =>"ẨM ĐẤT",
-  "anhsang"     =>"ÁNH SÁNG",
-  "auto"        =>"Tự Động",
-  "manual"      =>"Thủ Công",
-  "nhietdo1"    =>"Nhiệt Độ",
-  "doamdat1"    =>"Độ Ẩm Đất",
-  "doamkhongkhi1"=>"Độ Ẩm Không Khí",
-  "cuongdosang1"=>"Cường Độ Sáng",
-  "rain"        =>"Có",
-  "norain"      =>"Không",
-  "logout"      =>"Đăng Xuất",
+  "amdat"       => "ẨM ĐẤT",
+  "anhsang"     => "ÁNH SÁNG",
+  "auto"        => "Tự Động",
+  "manual"      => "Thủ Công",
+  "nhietdo1"    => "Nhiệt Độ",
+  "doamdat1"    => "Độ Ẩm Đất",
+  "doamkhongkhi1" => "Độ Ẩm Không Khí",
+  "cuongdosang1" => "Cường Độ Sáng",
+  "rain"        => "Có",
+  "norain"      => "Không",
+  "logout"      => "Đăng Xuất",
 );
 
-$lang3= $arrayName = array
-(
+$lang3 = $arrayName = array(
   "max"         => "Giá Trị",
   "set"         => "Đặt",
   "sott"        => "Số Thứ Tự",
@@ -65,8 +61,7 @@ $lang3= $arrayName = array
   "dangtat"     => "Đang Tắt",
 );
 
-$lang4= $arrayName = array
-(
+$lang4 = $arrayName = array(
   "batthietbi"  => "Bật Thiết Bị",
   "tatthietbi"  => "Tắt Thiết Bị",
   "doamhientai" => "Độ Ẩm Không Khí",
@@ -74,15 +69,14 @@ $lang4= $arrayName = array
   "max"         => "Lớn Nhất",
   "min"         => "Nhỏ Nhất",
   "tb"          => "Trung Bình",
-  "today"       => "Hôm nay",
+  "today"       => "Trung bình trong ngày",
   "chart"       => "Biểu Đồ",
   "data"        => "Dữ Liệu",
   "oneday"      => "Dữ Liệu Độ Ẩm Không Khí Vườn Trong Ngày",
   "tt"          => "Thứ Tự",
 );
 
-$lang5= $arrayName = array 
-(
+$lang5 = $arrayName = array(
   "t_sta"       => "Thời gian bật",
   "t_sto"       => "Thời gian tắt",
   "set"         => "Cài đặt",
@@ -96,8 +90,7 @@ $lang5= $arrayName = array
   "kn"          => "Mất Kết Nối",
 );
 
-$lang6= $arrayName = array
-(
+$lang6 = $arrayName = array(
   "doamhientai" => "Cường Độ Sáng",
   "thongke"     => "Thống Kê Cường Độ Sáng Vườn",
   "oneday"      => "Dữ Liệu Cường Độ Sáng Vườn Trong Ngày",
@@ -108,8 +101,7 @@ $lang6= $arrayName = array
 );
 
 
-$lang7= $arrayName = array
-(
+$lang7 = $arrayName = array(
   "doamhientai" => "Độ Ẩm Đất",
   "thongke"     => "Thống Kê Độ Ẩm Đất Vườn",
   "oneday"      => "Dữ Liệu Độ Ẩm Đất Vườn Trong Ngày",
@@ -117,8 +109,7 @@ $lang7= $arrayName = array
   "dakkv1"      => "Độ Ẩm Đất Vườn",
 );
 
-$lang8= $arrayName = array
-(
+$lang8 = $arrayName = array(
   "doamhientai"   => "Nhiệt Độ Hiện Tại",
   "thongke"       => "Thống Kê Nhiệt Độ Vườn",
   "oneday"        => "Dữ Liệu Nhiệt Độ Vườn Trong Ngày",
@@ -130,4 +121,3 @@ $lang8= $arrayName = array
   "t_sta"         => "Thời gian bắt đầu ",
   "t_sto"         => "Thời gian kết thúc",
 );
-?>
