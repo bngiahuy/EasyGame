@@ -1,5 +1,19 @@
 <?php
-session_start();
-session_unset();
+// Start the session if it hasn't been started yet
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Clear all session variables
+$_SESSION = array();
+
+// Remove the session cookie from the user's browser
+if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
+}
+
+// Destroy the session
 session_destroy();
+
 header('Location:../../index.php');
