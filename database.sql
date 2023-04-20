@@ -16,13 +16,14 @@ CREATE TABLE USER (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE CONTROL (
-  `Den1` int(11) NOT NULL,
-  `Bom1` int(11) NOT NULL,
-  `Ps1` int(11) NOT NULL,
-  `Rc1` int(11) NOT NULL
+  'Manual_mode' bit(1) not null,
+  `Den1` bit(1) NOT NULL,
+  `Bom1` bit(1) NOT NULL,
+  `Ps1` bit(1) NOT NULL,
+  `Rc1` bit(1)EAN NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO CONTROL VALUES (0,0,0,0);
+INSERT INTO CONTROL VALUES (0,0,0,0,0);
 
 CREATE TABLE AUTO (
   `Temperature` int(11) NOT NULL,
@@ -97,33 +98,6 @@ CREATE TABLE T_HUMID (
 INSERT INTO T_HUMID VALUES (0, 30, '2023-04-03 08:53:27'), (1, 30, '2023-04-03 08:53:32');
 
 
-
-
-CREATE TABLE DEVICE_DATA (
-    DeviceID INT NOT NULL,
-    Thong_so_do_duoc INT DEFAULT NULL,
-    Thoi_gian_do_duoc datetime NOT NULL,
-    FOREIGN KEY (DeviceID) REFERENCES DEVICE(DeviceID)
-
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE PLANT (
-    PlantID INT NOT NULL AUTO_INCREMENT,
-    GardenID INT NOT NULL,
-    Ten VARCHAR(255) DEFAULT NULL,
-    Tinh_trang VARCHAR(255) DEFAULT NULL,
-    So_luong INT DEFAULT NULL,
-    Muc_phat_trien VARCHAR(255) DEFAULT NULL,
-    Ngay_trong DATE DEFAULT NULL,
-    Ghi_chu VARCHAR(255) DEFAULT NULL,
-    def_Cuong_do_anh_sang FLOAT DEFAULT NULL,
-    def_Nhiet_do FLOAT DEFAULT NULL,
-    def_Do_am_dat FLOAT DEFAULT NULL,
-    def_Do_am_khong_khi FLOAT DEFAULT NULL,
-    PRIMARY KEY (PlantID),
-    FOREIGN KEY (GardenID) REFERENCES GARDEN(GardenID)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 CREATE TABLE STATUS (
   Trang_thai_den int(11) NOT NULL,
    Trang_thai_phunsuong int(11) NOT NULL,
@@ -139,6 +113,7 @@ CREATE TABLE DISPLAY (
   `Mois` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 INSERT INTO DISPLAY VALUES (30, 90, 1000, 100);
+
 
 INSERT INTO STATUS VALUES (0,0,0,0);
 
