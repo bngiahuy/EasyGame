@@ -1,10 +1,14 @@
+String data = status_10 + ";" + status_9 + ";" + status_8 + ";" + status_7 + ";" + rain + ";" + String(t) + ";" + String(h) + ";" + String(lux) + ";" + String(mois);
+Hoàng
+    Hoàng Trí
 #include <DHT.h>
 #include <BH1750.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #include <SoftwareSerial.h>
-//=================================config====================//
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+#include <string.h>
+        //=================================config====================//
+        LiquidCrystal_I2C lcd(0x27, 16, 2);
 const int DHTPIN = 4; // Noi chan DHT11 voi chan 4 cua arduino.
 const int DHTTYPE = DHT11;
 DHT dht(DHTPIN, DHTTYPE);
@@ -111,7 +115,7 @@ void loop()
       {
         tachchuoi(string_index);
         // String receive form sever:
-        // $den1.$ps1.$bom1.$rc1.'?'.$t1.';'.$h1.';'.$l1.';'.$m1;
+        // $den1.$ps1.$bom1.$rc1.$den2.$ps2.$bom2.$rc2. $mode1.$mode2.'?'.$t1.';'.$h1.';'.$l1.';'.$m1.','.$t2.';'.$h2.';'.$l2.';'.$m2;
         Serial.print(t1);
         Serial.print(m1);
         Serial.print(h1);
@@ -204,41 +208,65 @@ void loop()
   }
 }
 
+// void tachchuoi(String chuoi){
+// String chuoi1;
+// byte moc;
+//     for (int i = 0; i < chuoi.length(); i++)
+//         if (chuoi.charAt(i) == '?')
+//     moc = i;
+
+//    chuoi.remove(0,moc+1);
+
+//    for (int i = 0; i < chuoi.length(); i++)
+//         if (chuoi.charAt(i) == ',')
+//     moc = i;
+//    chuoi.remove(moc);
+//  chuoi1=chuoi;
+//    for (int i = 0; i < chuoi.length(); i++)
+//         if (chuoi.charAt(i) == ';')
+//     moc = i;
+//    chuoi.remove(moc);
+//    chuoi1.remove(0,moc+1);
+//    m1=chuoi1.toInt();
+//  chuoi1=chuoi;
+//    for (int i = 0; i < chuoi.length(); i++)
+//         if (chuoi.charAt(i) == ';')
+//     moc = i;
+//    chuoi.remove(moc);
+//    chuoi1.remove(0,moc+1);
+//    l1=chuoi1.toInt();
+//  chuoi1=chuoi;
+//    for (int i = 0; i < chuoi.length(); i++)
+//         if (chuoi.charAt(i) == ';')
+//     moc = i;
+//    chuoi.remove(moc);
+//    chuoi1.remove(0,moc+1);
+//    h1=chuoi1.toInt();
+
+//    t1=chuoi.toInt();
+//   }
+
 void tachchuoi(String chuoi)
 {
-  String chuoi1;
-  byte moc;
-  for (int i = 0; i < chuoi.length(); i++)
-    if (chuoi.charAt(i) == '?')
-      moc = i; // Tìm v? trí c?a d?u ",
+  int moc = chuoi.indexOf('?');
+  chuoi = chuoi.substring(moc + 1);
 
-  chuoi.remove(0, moc + 1);
+  int t1_loc = chuoi.indexOf(';');
+  String t1_str = chuoi.substring(0, t1_loc);
+  t1 = t1_str.toInt();
 
-  for (int i = 0; i < chuoi.length(); i++)
-    if (chuoi.charAt(i) == ',')
-      moc = i; // Tìm v? trí c?a d?u ",
-  chuoi.remove(moc);
-  chuoi1 = chuoi;
-  for (int i = 0; i < chuoi.length(); i++)
-    if (chuoi.charAt(i) == ';')
-      moc = i; // Tìm v? trí c?a d?u ",
-  chuoi.remove(moc);
-  chuoi1.remove(0, moc + 1);
-  m1 = chuoi1.toInt();
-  chuoi1 = chuoi;
-  for (int i = 0; i < chuoi.length(); i++)
-    if (chuoi.charAt(i) == ';')
-      moc = i;
-  chuoi.remove(moc);
-  chuoi1.remove(0, moc + 1);
-  l1 = chuoi1.toInt();
-  chuoi1 = chuoi;
-  for (int i = 0; i < chuoi.length(); i++)
-    if (chuoi.charAt(i) == ';')
-      moc = i;
-  chuoi.remove(moc);
-  chuoi1.remove(0, moc + 1);
-  h1 = chuoi1.toInt();
+  chuoi = chuoi.substring(t1_loc + 1);
+  int h1_loc = chuoi.indexOf(';');
+  String h1_str = chuoi.substring(0, h1_loc);
+  h1 = h1_str.toInt();
 
-  t1 = chuoi.toInt();
+  chuoi = chuoi.substring(h1_loc + 1);
+  int l1_loc = chuoi.indexOf(';');
+  String l1_str = chuoi.substring(0, l1_loc);
+  l1 = l1_str.toInt();
+
+  chuoi = chuoi.substring(l1_loc + 1);
+  int m1_loc = chuoi.indexOf(';');
+  String m1_str = chuoi.substring(0, m1_loc);
+  m1 = m1_str.toInt();
 }
