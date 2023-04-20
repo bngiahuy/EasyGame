@@ -1,5 +1,5 @@
-# EasyGame_Do-an-HK222
-
+# EasyGame_Do-an-da-nganh-HK222
+Ngôn ngữ: Js, PHP, MySQL. Không sử dụng frameworks (vì không biết sử dụng :D ).
 Đầu tiên cần cài đặt và XAMPP bản mới nhất (chạy dưới quyền admin), sau đó khởi chạy 2 server MySQL và Apache.
 
 Clone github này về và để trong htdocs của folder XAMPP.
