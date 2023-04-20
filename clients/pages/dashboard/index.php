@@ -70,32 +70,32 @@ if (isset($_POST['rc'])) {
 
 if (isset($_POST['onall'])) {
     $x0 = $x1 = $x2 = $x3 = 1;
-    $sql = "UPDATE control SET Rc1 = 1";
+    $sql = "UPDATE CONTROL SET Rc1 = 1";
     if ($conn->query($sql) === TRUE) {
     }
-    $sql = "UPDATE control SET Ps1 = 1";
+    $sql = "UPDATE CONTROL SET Ps1 = 1";
     if ($conn->query($sql) === TRUE) {
     }
-    $sql = "UPDATE control SET Bom1 = 1";
+    $sql = "UPDATE CONTROL SET Bom1 = 1";
     if ($conn->query($sql) === TRUE) {
     }
-    $sql = "UPDATE control SET Den1 = 1";
+    $sql = "UPDATE CONTROL SET Den1 = 1";
     if ($conn->query($sql) === TRUE) {
     }
 }
 
 if (isset($_POST['offall'])) {
     $x0 = $x1 = $x2 = $x3 = 0;
-    $sql = "UPDATE control SET Rc1 = 0";
+    $sql = "UPDATE CONTROL SET Rc1 = 0";
     if ($conn->query($sql) === TRUE) {
     }
-    $sql = "UPDATE control SET Ps1 = 0";
+    $sql = "UPDATE CONTROL SET Ps1 = 0";
     if ($conn->query($sql) === TRUE) {
     }
-    $sql = "UPDATE control SET Bom1 = 0";
+    $sql = "UPDATE CONTROL SET Bom1 = 0";
     if ($conn->query($sql) === TRUE) {
     }
-    $sql = "UPDATE control SET Den1 = 0";
+    $sql = "UPDATE CONTROL SET Den1 = 0";
     if ($conn->query($sql) === TRUE) {
     }
 }
