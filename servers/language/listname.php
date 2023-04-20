@@ -10,7 +10,7 @@ $lang = $arrayName = array(
 );
 
 $lang1 = $arrayName = array(
-  "vuon1"             => "Node 1",
+  "vuon1"             => "Vườn 1",
   "admin"             => "Tài khoản",
   "hethong"           => "HỆ THỐNG GIÁM SÁT",
   "giamsattructuyen"  => "Giám Sát",
