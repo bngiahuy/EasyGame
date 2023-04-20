@@ -14,26 +14,25 @@ if (!empty($_POST['datasend'])) {
     $x8 = $value_mahoa[7];
     $x9 = $value_mahoa[8];
 
-    // $sql = "UPDATE STATUS SET Trang_thai_den = $x1";
-    // if ($result = mysqli_query($conn, $sql)) {
-    //     // $result->free_result();
-    // }
+    $sql = "UPDATE STATUS SET Trang_thai_den = $x1";
+    if ($result = mysqli_query($conn, $sql)) {
+        // $result->free_result();
+    }
 
-    // $sql = "UPDATE STATUS SET Trang_thai_phunsuong = $x2";
-    // if ($result = mysqli_query($conn, $sql)) {
-    //     // $result->free_result();
-    // }
+    $sql = "UPDATE STATUS SET Trang_thai_phunsuong = $x2";
+    if ($result = mysqli_query($conn, $sql)) {
+        // $result->free_result();
+    }
 
-    // $sql = "UPDATE STATUS SET Trang_thai_maybom = $x3";
-    // if ($result = mysqli_query($conn, $sql)) {
-    //     // $result->free_result();
-    // }
+    $sql = "UPDATE STATUS SET Trang_thai_maybom = $x3";
+    if ($result = mysqli_query($conn, $sql)) {
+        // $result->free_result();
+    }
 
-    // $sql = "UPDATE STATUS SET Trang_thai_RC = $x4";
-    // if ($result = mysqli_query($conn, $sql)) {
-    //     // $result->free_result();
-    // }
-
+    $sql = "UPDATE STATUS SET Trang_thai_RC = $x4";
+    if ($result = mysqli_query($conn, $sql)) {
+        // $result->free_result();
+    }
 
 
     $sql = "UPDATE DISPLAY SET Temperature = $x6";
