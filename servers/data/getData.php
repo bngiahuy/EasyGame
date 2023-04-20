@@ -94,4 +94,4 @@ if (!empty($_POST['datasend'])) {
         echo "Error: " . $sql . "<br>" . $conn->error;
     };
 }
-$conn->close();
+// $conn->close();

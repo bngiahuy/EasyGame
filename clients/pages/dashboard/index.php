@@ -3,10 +3,13 @@ set_include_path($_SERVER['DOCUMENT_ROOT'] . "/EasyGame");
 include("servers/language/config.php");
 if (!isset($_SESSION["username"])) {
     header("Location: http://localhost/EasyGame/clients/index.php");
+    exit();
 }
-include("servers/connection.php");
+// include("servers/connection.php");
+require_once("servers/Database.php");
+$db = Database::getInstance();
 $query = "SELECT * from AUTO";
-$result = $conn->query($query);
+$result = $db->query($query);
 while ($row = $result->fetch_assoc()) {
     $t = $row["Temperature"];
     $h = $row["Humidity"];
@@ -14,8 +17,8 @@ while ($row = $result->fetch_assoc()) {
     $l = $row["Light"];
 }
 
-$query = "SELECT * from CONTROL";
-$result = $conn->query($query);
+$query = "SELECT Den1, Bom1, Ps1, Rc1 from CONTROL";
+$result = $db->query($query);
 while ($row = $result->fetch_assoc()) {
     $x0 = $row["Den1"];
     $x1 = $row["Bom1"];
@@ -29,9 +32,10 @@ if (isset($_POST['den'])) {
     } else {
         $x0 = 0;
     };
-    $sql = "UPDATE CONTROL SET Den1 = $x0";
-    if ($conn->query($sql) === TRUE) {
-    }
+    $result = $db->query("UPDATE CONTROL SET Den1 = $x0");
+    // $sql = "UPDATE CONTROL SET Den1 = $x0";
+    // if ($result = $db->query($sql)) {
+    // }
 }
 
 if (isset($_POST['bom'])) {
@@ -40,9 +44,10 @@ if (isset($_POST['bom'])) {
     } else {
         $x1 = 0;
     };
-    $sql = "UPDATE CONTROL SET Bom1 = $x1";
-    if ($conn->query($sql) === TRUE) {
-    }
+    $result = $db->query("UPDATE CONTROL SET Bom1 = $x1");
+    // $sql = "UPDATE CONTROL SET Bom1 = $x1";
+    // if ($result = $db->query($sql)) {
+    // }
 }
 
 if (isset($_POST['ps'])) {
@@ -51,9 +56,10 @@ if (isset($_POST['ps'])) {
     } else {
         $x2 = 0;
     };
-    $sql = "UPDATE CONTROL SET Ps1 = $x2";
-    if ($conn->query($sql) === TRUE) {
-    }
+    $result = $db->query("UPDATE CONTROL SET Ps1 = $x2");
+    // $sql = "UPDATE CONTROL SET Ps1 = $x2";
+    // if ($result = $db->query($sql)) {
+    // }
 }
 
 if (isset($_POST['rc'])) {
@@ -62,61 +68,71 @@ if (isset($_POST['rc'])) {
     } else {
         $x3 = 0;
     };
-    $sql = "UPDATE CONTROL SET Rc1 = $x3";
-    if ($conn->query($sql) === TRUE) {
-    }
+    $result = $db->query("UPDATE CONTROL SET Rc1 = $x3");
+    // $sql = "UPDATE CONTROL SET Rc1 = $x3";
+    // if ($result = $db->query($sql)) {
+    // }
 }
 
 
 if (isset($_POST['onall'])) {
     $x0 = $x1 = $x2 = $x3 = 1;
     $sql = "UPDATE CONTROL SET Rc1 = 1";
-    if ($conn->query($sql) === TRUE) {
+    if ($result = $db->query($sql)) {
     }
+
     $sql = "UPDATE CONTROL SET Ps1 = 1";
-    if ($conn->query($sql) === TRUE) {
+    if ($result = $db->query($sql)) {
     }
+
     $sql = "UPDATE CONTROL SET Bom1 = 1";
-    if ($conn->query($sql) === TRUE) {
+    if ($result = $db->query($sql)) {
     }
+
     $sql = "UPDATE CONTROL SET Den1 = 1";
-    if ($conn->query($sql) === TRUE) {
+    if ($result = $db->query($sql)) {
     }
 }
 
 if (isset($_POST['offall'])) {
     $x0 = $x1 = $x2 = $x3 = 0;
     $sql = "UPDATE CONTROL SET Rc1 = 0";
-    if ($conn->query($sql) === TRUE) {
+    if ($result = $db->query($sql)) {
     }
+
     $sql = "UPDATE CONTROL SET Ps1 = 0";
-    if ($conn->query($sql) === TRUE) {
+    if ($result = $db->query($sql)) {
     }
+
     $sql = "UPDATE CONTROL SET Bom1 = 0";
-    if ($conn->query($sql) === TRUE) {
+    if ($result = $db->query($sql)) {
     }
+
     $sql = "UPDATE CONTROL SET Den1 = 0";
-    if ($conn->query($sql) === TRUE) {
+    if ($result = $db->query($sql)) {
     }
 }
 
-// $query = "SELECT * from mode";
-// $result = $conn->query($query);
-// while ($row = $result->fetch_assoc()) {
-//     $mode = $row["Mode1"];
-// }
-// ///
+$query = "SELECT `Manual_mode` from CONTROL";
+$result = $db->query($query);
+while ($row = $result->fetch_assoc()) {
+    $mode = $row["Manual_mode"];
+}
+///
 
-// if (isset($_POST['ON1'])) {
-//     if ($mode == 0) {
-//         $mode = 1;
-//     } else {
-//         $mode = 0;
-//     };
-//     $sql = "UPDATE mode SET Mode1 = $mode";
-//     if ($conn->query($sql) === TRUE) {
-//     }
-// }
+if (isset($_POST['ON1'])) {
+    if ($mode == 0) {
+        $mode = 1;
+    } else {
+        $mode = 0;
+    };
+    $sql = "UPDATE CONTROL SET Manual_mode = $mode";
+    if ($result = $db->query($sql)) {
+    }
+    // $sql = "UPDATE mode SET Mode1 = $mode";
+    // if ($result = $db->query($sql)) {
+    // }
+}
 ?>
 
 
