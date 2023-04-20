@@ -1,6 +1,6 @@
 <?php
 set_include_path($_SERVER['DOCUMENT_ROOT'] . "/EasyGame");
-include("../servers/language/config.php");
+include("servers/language/config.php");
 ?>
 
 <!DOCTYPE html>
