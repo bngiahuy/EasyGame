@@ -1,10 +1,10 @@
 # EasyGame_Do-an-HK222
 
-Đầu tiên cần cài đặt XAMPP bản mới nhất, sau đó khởi chạy 2 server MySQL và Apache.
+Đầu tiên cần cài đặt và XAMPP bản mới nhất (chạy dưới quyền admin), sau đó khởi chạy 2 server MySQL và Apache.
 
-Clone github này về và để trong htdocs của folder XAMPP và đổi tên folder của source code lại thành EasyGame.
+Clone github này về và để trong htdocs của folder XAMPP.
 
-Import file sql vào MySQL trong XAMPP bằng http://localhost/phpmyadmin.
+Import file sql vào MySQL trong XAMPP trong http://localhost/phpmyadmin.
 
 Vô trình duyệt gõ http://localhost/EasyGame, web sẽ tự điều hướng sang clients.
 
