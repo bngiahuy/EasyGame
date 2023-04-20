@@ -1,9 +1,11 @@
 <?php
 ob_start();
 set_include_path($_SERVER['DOCUMENT_ROOT'] . "/EasyGame");
-// set_include_path("/XAMPP/htdocs/EasyGame");
-
 include("servers/language/config.php");
+// require_once("servers/connection.php");
+require_once("servers/Database.php");
+$db = Database::getInstance();
+
 ?>
 <html>
 
@@ -117,7 +119,6 @@ include("servers/language/config.php");
 
 <body>
 	<?php
-	require_once("servers/connection.php");
 	if (isset($_POST["dangnhap"])) {
 		$username = $_POST["username"];
 		$password = $_POST["password"];
@@ -130,16 +131,18 @@ include("servers/language/config.php");
 		if ($username == "" || $password == "") {
 			echo $lang['loi1'];
 		} else {
+
 			$sql = "select * from USER where email = '$username' and password = '$password' ";
-			$query = mysqli_query($conn, $sql);
-			$num_rows = mysqli_num_rows($query);
-			if ($num_rows == 0) {
+			// $query = mysqli_query($conn, $sql);
+			$result = $db->query($sql);
+			$num_rows = $result->num_rows;
+			if (!$num_rows) {
 				echo $lang['loi2'];
 			} else {
 				$_SESSION['username'] = $username;
 				$_SESSION['password'] = $password;
 				header('Location: http://localhost/EasyGame/clients/pages/dashboard/');
-				// exit;
+				exit();
 			}
 		}
 	}
