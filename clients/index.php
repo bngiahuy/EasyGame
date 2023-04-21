@@ -32,7 +32,7 @@ include("servers/language/config.php");
             <a class="navbar-brand fs-3 fw-bold" href="index.php">VƯỜN RAU TỰ ĐỘNG ỨNG DỤNG IOT</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-lg-0 mx-auto">
-                    <li class="nav-item"><a class="nav-link mx-3" href="#">L02 - Nhóm 6</a></li>
+                    <li class="nav-item"><a class="nav-link mx-3" href="#">Easy Game</a></li>
                     <li class="nav-item"><a class="nav-link active fw-semibold mx-3" aria-current="page" href="index.php"><?php echo $lang['home'] ?></a> </li>
                     <li class="nav-item"><a class="nav-link mx-3" href="https://cse.hcmut.edu.vn/">Khoa KH&KT Máy Tính</a></li>
                     <li class="nav-item"><a class="nav-link mx-3" href="pages/login/"><?php echo $lang['login'] ?></a></li>
