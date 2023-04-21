@@ -4,7 +4,12 @@ set_include_path($_SERVER['DOCUMENT_ROOT'] . "/EasyGame");
 include "servers/language/config.php";
 if (!isset($_SESSION["username"])) {
     header("Location: ../dashboard/index.php");
+    exit();
 }
+
+// include_once("servers/connection.php");
+require_once("servers/Database.php");
+$db = Database::getInstance();
 ?>
 
 <!DOCTYPE html>
@@ -136,12 +141,11 @@ if (!isset($_SESSION["username"])) {
                     </div>
                     <?php
                     // GET LAST TEMP
-                    include_once("servers/connection.php");
-                    $query = "SELECT * from T_TEMPERATURE";
-                    $result = $conn->query($query);
+                    $query = "SELECT value from T_TEMPERATURE";
+                    // $result = $conn->query($query);
+                    $result = $db->query($query);
                     $row = $result->fetch_assoc();
                     $x = $row["value"];
-
                     ?>
                     <script>
                         var temp = '<?php echo $x; ?>'; //0
@@ -178,7 +182,7 @@ if (!isset($_SESSION["username"])) {
                                 g1.refresh(temp);
                             }, 1000);
                         }
-                        setInterval(get_element, 1000);
+                        setInterval(get_element, 2000);
                     </script>
 
                     <div class="col-md-6 col-md-6 col-sm-6">
@@ -248,8 +252,8 @@ if (!isset($_SESSION["username"])) {
                             <div class="box-body">
                                 <?php
                                 $query = "SELECT * FROM T_TEMPERATURE ORDER BY id DESC LIMIT 10";
-                                $result = mysqli_query($conn, $query);
-
+                                // $result = mysqli_query($conn, $query);
+                                $result = $db->query($query);
                                 $number = 1;
                                 echo '<table class="table table-hover table-condensed display" id="example2" cellspacing="0" width="100%">';
                                 echo '<thead>';
@@ -280,7 +284,8 @@ if (!isset($_SESSION["username"])) {
                             <div class="box-body">
                                 <?php
                                 $query = "SELECT * FROM T_TEMPERATURE ORDER BY id DESC";
-                                $result = mysqli_query($conn, $query);
+                                // $result = mysqli_query($conn, $query);
+                                $result = $db->query($query);
 
                                 $number = 1;
                                 echo '<table class="table table-hover table-condensed display" id="example" cellspacing="0" width="100%">';
@@ -475,7 +480,7 @@ if (!isset($_SESSION["username"])) {
                                     xAxis: {
                                         type: 'datetime',
                                         dateTimeLabelFormats: {
-                                            second: '%H:%M',
+                                            day: '%e. %b',
                                         },
                                         title: {
                                             text: null,

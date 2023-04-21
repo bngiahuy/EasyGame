@@ -5,6 +5,9 @@ include "servers/language/config.php";
 if (!isset($_SESSION["username"])) {
     header("Location: ../dashboard/index.php");
 }
+
+require_once("servers/Database.php");
+$db = Database::getInstance();
 ?>
 
 <!DOCTYPE html>
@@ -135,9 +138,8 @@ if (!isset($_SESSION["username"])) {
                     </div>
                     <?php
                     // GET LAST TEMP
-                    include_once('servers/connection.php');
                     $query = "SELECT * from T_MOISTURE";
-                    $result = $conn->query($query);
+                    $result = $db->query($query);
                     $row = $result->fetch_assoc();
                     $x = $row["value"];
 
@@ -248,7 +250,7 @@ if (!isset($_SESSION["username"])) {
                             <div class="box-body">
                                 <?php
                                 $query = "SELECT * FROM T_MOISTURE ORDER BY id DESC LIMIT 10";
-                                $result = mysqli_query($conn, $query);
+                                $result = $db->query($query);
 
                                 $number = 1;
                                 echo '<table class="table table-hover table-condensed display" id="example2" cellspacing="0" width="100%">';
@@ -281,7 +283,7 @@ if (!isset($_SESSION["username"])) {
                             <div class="box-body">
                                 <?php
                                 $query = "SELECT * FROM T_MOISTURE ORDER BY id DESC";
-                                $result = mysqli_query($conn, $query);
+                                $result = $db->query($query);
 
                                 $number = 1;
                                 echo '<table class="table table-hover table-condensed display" id="example" cellspacing="0" width="100%">';
@@ -435,7 +437,7 @@ if (!isset($_SESSION["username"])) {
                                             dateFormat: '%H:%M:%S %d/%m/%Y',
                                             decimalPoint: String,
                                         },
-                                        filename: 'Nhiệt độ không khí vườn 1',
+                                        filename: 'Độ ẩm đất vườn 1',
                                         buttons: {
                                             contextButton: {
                                                 menuItems: ['downloadPNG', 'downloadJPEG', 'downloadSVG', 'downloadPDF', 'separator', 'downloadCSV', 'downloadXLS', 'viewData', 'openInCloud']

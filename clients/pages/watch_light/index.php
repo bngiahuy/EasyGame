@@ -5,6 +5,8 @@ include "servers/language/config.php";
 if (!isset($_SESSION["username"])) {
     header("Location: ../../index.php");
 }
+require_once("servers/Database.php");
+$db = Database::getInstance();
 ?>
 
 <!DOCTYPE html>
@@ -132,9 +134,9 @@ if (!isset($_SESSION["username"])) {
                     </div>
                     <?php
                     // GET LAST TEMP
-                    include_once('servers/connection.php');
                     $query = "SELECT * from T_LIGHT";
-                    $result = $conn->query($query);
+                    $result = $db->query($query);
+
                     $row = $result->fetch_assoc();
                     $x = $row["value"];
 
@@ -247,7 +249,7 @@ if (!isset($_SESSION["username"])) {
                             <div class="box-body">
                                 <?php
                                 $query = "SELECT * FROM T_LIGHT ORDER BY id DESC LIMIT 10";
-                                $result = mysqli_query($conn, $query);
+                                $result = $db->query($query);
 
                                 $number = 1;
                                 echo '<table class="table table-hover table-condensed display" id="example2" cellspacing="0" width="100%">';
@@ -280,7 +282,7 @@ if (!isset($_SESSION["username"])) {
                             <div class="box-body">
                                 <?php
                                 $query = "SELECT * FROM T_LIGHT ORDER BY id DESC";
-                                $result = mysqli_query($conn, $query);
+                                $result = $db->query($query);
 
                                 $number = 1;
                                 echo '<table class="table table-hover table-condensed display" id="example" cellspacing="0" width="100%">';
