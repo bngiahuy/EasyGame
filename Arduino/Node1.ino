@@ -1,14 +1,14 @@
-String data = status_10 + ";" + status_9 + ";" + status_8 + ";" + status_7 + ";" + rain + ";" + String(t) + ";" + String(h) + ";" + String(lux) + ";" + String(mois);
-Hoàng
-    Hoàng Trí
+// String data = status_10 + ";" + status_9 + ";" + status_8 + ";" + status_7 + ";" + rain + ";" + String(t) + ";" + String(h) + ";" + String(lux) + ";" + String(mois);
+// Hoàng
+//     Hoàng Trí
 #include <DHT.h>
 #include <BH1750.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #include <SoftwareSerial.h>
 #include <string.h>
-        //=================================config====================//
-        LiquidCrystal_I2C lcd(0x27, 16, 2);
+//=================================config====================//
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 const int DHTPIN = 4; // Noi chan DHT11 voi chan 4 cua arduino.
 const int DHTTYPE = DHT11;
 DHT dht(DHTPIN, DHTTYPE);
