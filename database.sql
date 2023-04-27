@@ -17,14 +17,14 @@ CREATE TABLE USER (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE CONTROL (
-  `Manual_mode` bit(1) not null,
-  `Den1` bit(1) NOT NULL,
-  `Bom1` bit(1) NOT NULL,
-  `Ps1` bit(1) NOT NULL,
-  `Rc1` bit(1) NOT NULL
+  `Manual_mode` int(1) not null,
+  `Den1` int(1) NOT NULL,
+  `Bom1` int(1) NOT NULL,
+  `Ps1` int(1) NOT NULL,
+  `Rc1` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO CONTROL VALUES (0,0,0,0,0);
+INSERT INTO CONTROL VALUES (1,0,0,0,0);
 
 CREATE TABLE AUTO (
   `Temperature` int(11) NOT NULL,

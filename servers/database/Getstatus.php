@@ -21,7 +21,7 @@ $result = $db->query($sql);
 
 while ($row = $result->fetch_assoc()) {
 	if ($row["Manual_mode"] == 1) $mode1 = "manual1";
-	else $mode1 = "auto1";
+	else if ($row["Manual_mode"] == 0) $mode1 = "auto1";
 	if ($row["Den1"] == 1) $den1 = "den1_on";
 	else $den1 = "den1_off";
 	if ($row["Ps1"] == 0) $ps1 = "ps1_off";

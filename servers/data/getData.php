@@ -21,22 +21,22 @@ if (!empty($_POST['datasend'])) {
     $x8 = $value_mahoa[7]; // String(lux)
     $x9 = $value_mahoa[8]; // String(mois)
 
-    $sql = "UPDATE CONTROL SET Trang_thai_den = $x1";
+    $sql = "UPDATE CONTROL SET Den1 = $x1";
     if ($result = $db->query($sql)) {
         // $result->free_result();
     }
 
-    $sql = "UPDATE CONTROL SET Trang_thai_phunsuong = $x2";
+    $sql = "UPDATE CONTROL SET Ps1 = $x2";
     if ($result = $db->query($sql)) {
         // $result->free_result();
     }
 
-    $sql = "UPDATE CONTROL SET Trang_thai_maybom = $x3";
+    $sql = "UPDATE CONTROL SET Bom1 = $x3";
     if ($result = $db->query($sql)) {
         // $result->free_result();
     }
 
-    $sql = "UPDATE CONTROL SET Trang_thai_RC = $x4";
+    $sql = "UPDATE CONTROL SET Rc1 = $x4";
     if ($result = $db->query($sql)) {
         // $result->free_result();
     }
@@ -65,7 +65,6 @@ if (!empty($_POST['datasend'])) {
     date_default_timezone_set('Asia/Jakarta');
     $d = date("Y/m/d-H:i:s");
 
-    $gardenID_example = 1;
 
 
     // $sql = "INSERT INTO DEVICE_DATA VALUES ()";

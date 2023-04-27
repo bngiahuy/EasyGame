@@ -26,6 +26,9 @@ while ($row = $result->fetch_assoc()) {
     $x3 = $row["Rc1"];
 }
 
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+// }
 if (isset($_POST['den'])) {
     if ($x0 == 0) {
         $x0 = 1;
@@ -113,26 +116,23 @@ if (isset($_POST['offall'])) {
     }
 }
 
-$query = "SELECT `Manual_mode` from CONTROL";
-$result = $db->query($query);
-while ($row = $result->fetch_assoc()) {
-    $mode = $row["Manual_mode"];
-}
 ///
 
-if (isset($_POST['ON1'])) {
-    if ($mode == 0) {
-        $mode = 1;
-    } else {
-        $mode = 0;
-    };
-    $sql = "UPDATE CONTROL SET Manual_mode = $mode";
-    if ($result = $db->query($sql)) {
+if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
+    $query = "SELECT `Manual_mode` from CONTROL";
+    $result = $db->query($query);
+    while ($row = $result->fetch_assoc()) {
+        $mode = $row["Manual_mode"];
     }
-    // $sql = "UPDATE mode SET Mode1 = $mode";
-    // if ($result = $db->query($sql)) {
-    // }
+
+    $sql = "UPDATE CONTROL SET Manual_mode = 1 - $mode";
+    if ($result = $db->query($sql)) {
+        echo "<script>alert('Update successful. New mode: " . $mode . "');</script>";
+    }
 }
+
+
+
 ?>
 
 
@@ -295,12 +295,12 @@ if (isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 2000);
+                        }, 5000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "database/nhietdo.php",
+                                url: "http://localhost/EasyGame/servers/database/nhietdo.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -316,12 +316,12 @@ if (isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 2000);
+                        }, 5000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "database/cuongdosang.php",
+                                url: "http://localhost/EasyGame/servers/database/cuongdosang.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -337,12 +337,12 @@ if (isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 2000);
+                        }, 5000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "database/doamkk.php",
+                                url: "http://localhost/EasyGame/servers/database/doamkk.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -358,12 +358,12 @@ if (isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 2000);
+                        }, 5000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "database/doamdat.php",
+                                url: "http://localhost/EasyGame/servers/database/doamdat.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -379,6 +379,7 @@ if (isset($_POST['ON1'])) {
                 <div class="row">
 
                     <form action="index.php" method="POST">
+                        <input type="hidden" name="mode_change" value="1">
                         <button style="width:90px;height:30px;" type="submit" class="btn btn-primary btn-sm" name="ON1" id="chonchedo">Thủ công</button>
                     </form>
                     <br><br><br>
@@ -504,12 +505,12 @@ if (isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 2000);
+                        }, 6000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "device/tb1.php",
+                                url: "http://localhost/EasyGame/clients/device/tb1.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -538,12 +539,12 @@ if (isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 2000);
+                        }, 6000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "device/tb2.php",
+                                url: "http://localhost/EasyGame/clients/device/tb2.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -571,12 +572,12 @@ if (isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 2000);
+                        }, 6000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "device/tb3.php",
+                                url: "http://localhost/EasyGame/clients/device/tb3.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -603,12 +604,12 @@ if (isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 2000);
+                        }, 6000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "device/tb4.php",
+                                url: "http://localhost/EasyGame/clients/device/tb4.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -738,72 +739,32 @@ if (isset($_POST['ON1'])) {
                     document.getElementById('chonchedo').style.backgroundColor = mode1;
                 </script>
 
-                <script src="../jquery.min.js"></script>
-                <script>
-                    $(document).ready(function() {
-                        setInterval(function() {
-                            get_data()
-                        }, 1000);
+                <!-- <script src="../jquery.min.js"></script> -->
 
-                        function get_data() {
-                            jQuery.ajax({
-                                type: "GET",
-                                url: "schedule/checktime.php",
-                                data: "",
-                                beforeSend: function() {},
-                                complete: function() {},
-                                success: function(data) {
-                                    $("#timer").html(data);
-                                }
-                            });
-                        }
-                    });
-                </script>
-
-                <script>
-                    $(document).ready(function() {
-                        setInterval(function() {
-                            get_data()
-                        }, 1000);
-
-                        function get_data() {
-                            jQuery.ajax({
-                                type: "GET",
-                                url: "schedule2/checktime.php",
-                                data: "",
-                                beforeSend: function() {},
-                                complete: function() {},
-                                success: function(data) {
-                                    $("#timer").html(data);
-                                }
-                            });
-                        }
-                    });
-                </script>
             </div>
         </div>
     </div>
-    <script src="base/js/jquery.js"></script>
+    <script src="../../base/js/jquery.js"></script>
     <script src="jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
     <!-- SWITCH SECTION -->
-    <link href="base/css/switch/bootstrap-switch.css" rel="stylesheet">
-    <script src="base/js/switch/highlight.js"></script>
-    <script src="base/js/switch/bootstrap-switch.js"></script>
-    <script src="base/js/switch/main.js"></script>
+    <link href="../../base/css/switch/bootstrap-switch.css" rel="stylesheet">
+    <script src="../../base/js/switch/highlight.js"></script>
+    <script src="../../base/js/switch/bootstrap-switch.js"></script>
+    <script src="../../base/js/switch/main.js"></script>
 
     <!-- GUAGE SECTION -->
-    <script src="base/js/guage/raphael-2.1.4.min.js"></script>
-    <script src="base/js/guage/justgage-1.1.0.min.js"></script>
+    <script src="../../base/js/guage/raphael-2.1.4.min.js"></script>
+    <script src="../../base/js/guage/justgage-1.1.0.min.js"></script>
     <!-- Menu Toggle Script -->
     <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
     <!-- Chart js library -->
-    <script src="base/js/chart/Chart.js"></script>
+    <script src="../../base/js/chart/Chart.js"></script>
     <!-- Slider -->
-    <script src="base/js/slider/freshslider.min.js"></script>
+    <script src="../../base/js/slider/freshslider.min.js"></script>
 
     <script>
         $("#menu-toggle").click(function(e) {
