@@ -295,7 +295,7 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 5000);
+                        }, 3000);
 
                         function get_data() {
                             jQuery.ajax({
@@ -316,7 +316,7 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 5000);
+                        }, 3000);
 
                         function get_data() {
                             jQuery.ajax({
@@ -337,7 +337,7 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 5000);
+                        }, 3000);
 
                         function get_data() {
                             jQuery.ajax({
@@ -358,7 +358,7 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 5000);
+                        }, 3000);
 
                         function get_data() {
                             jQuery.ajax({
@@ -505,7 +505,7 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 6000);
+                        }, 3000);
 
                         function get_data() {
                             jQuery.ajax({
@@ -539,7 +539,7 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 6000);
+                        }, 3000);
 
                         function get_data() {
                             jQuery.ajax({
@@ -572,7 +572,7 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 6000);
+                        }, 3000);
 
                         function get_data() {
                             jQuery.ajax({
@@ -604,7 +604,7 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 6000);
+                        }, 3000);
 
                         function get_data() {
                             jQuery.ajax({

@@ -35,36 +35,6 @@ CREATE TABLE AUTO (
 INSERT INTO AUTO VALUES (25, 95, 200, 80);
 
 
-
-CREATE TABLE GARDEN (
-    GardenID INT NOT NULL AUTO_INCREMENT,
-    Vi_tri VARCHAR(255) DEFAULT NULL,
-    So_cay INT DEFAULT NULL,
-    Che_do_quan_ly VARCHAR(255) DEFAULT NULL,
-    Tinh_trang VARCHAR(255) DEFAULT NULL,
-    PRIMARY KEY (GardenID)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO GARDEN VALUES (1, "Thu Duc, Ho Chi Minh City", 10, NULL, NULL);
-
-
-CREATE TABLE DEVICE (
-    DeviceID INT NOT NULL AUTO_INCREMENT,
-    GardenID INT NOT NULL,
-    Ten VARCHAR(255) DEFAULT NULL,
-    Tinh_trang VARCHAR(255) DEFAULT NULL,
-    Trang_thai BOOLEAN DEFAULT NULL,
-    Cong_dung VARCHAR(255) DEFAULT NULL,
-    Mo_ta VARCHAR(255) DEFAULT NULL,
-    PRIMARY KEY (DeviceID, GardenID),
-    FOREIGN KEY (GardenID) REFERENCES GARDEN(GardenID)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO DEVICE VALUES (1, 1, "TEMP_01", null, null, "Do nhiet do garden 1", null);
-INSERT INTO DEVICE VALUES (2, 1, "MOIS_01", null, null, "Do do am dat garden 1", null);
-INSERT INTO DEVICE VALUES (3, 1, "HUMID_01", null, null, "Do do am khong khi garden 1", null);
-INSERT INTO DEVICE VALUES (4, 1, "LIGHT_01", null, null, "Do cuong do anh sang garden 1", null);
-
 CREATE TABLE T_TEMPERATURE (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` int(11) NOT NULL,
@@ -186,7 +156,7 @@ INSERT INTO T_HUMID  VALUES (22, 36, '2023-03-21 20:00:00');
 
 CREATE TABLE STATUS (
   Trang_thai_den int(11) NOT NULL,
-   Trang_thai_phunsuong int(11) NOT NULL,
+  Trang_thai_phunsuong int(11) NOT NULL,
   Trang_thai_maybom int(11) NOT NULL,
   Trang_thai_RC int(11) NOT NULL
   
@@ -198,7 +168,7 @@ CREATE TABLE DISPLAY (
   `Light` int(11) NOT NULL,
   `Mois` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-INSERT INTO DISPLAY VALUES (30, 90, 1000, 100);
+-- INSERT INTO DISPLAY VALUES (30, 90, 1000, 100);
 
 
 INSERT INTO STATUS VALUES (0,0,0,0);

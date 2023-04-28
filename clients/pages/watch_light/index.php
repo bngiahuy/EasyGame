@@ -318,8 +318,18 @@ $db = Database::getInstance();
                     const char_data_path = "/EasyGame/clients/pages/";
 
                     function refreshData() {
-                        $('#attending_tbl').load(char_data_path + 'one_day_temp.php', "T_LIGHT");
-
+                        $.ajax({
+                            type: 'get',
+                            url: char_data_path + 'one_day_temp.php',
+                            data: {
+                                table: 'T_LIGHT'
+                            },
+                            dataType: 'text',
+                            success: function(data) {
+                                $('#attending_tbl').html(data);
+                            }
+                        })
+                        // $('#attending_tbl').load(char_data_path + 'one_day_temp.php', "T_TEMPERATURE");
                     }
 
                     function get_day_stat() {

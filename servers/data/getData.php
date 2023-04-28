@@ -21,22 +21,22 @@ if (!empty($_POST['datasend'])) {
     $x8 = $value_mahoa[7]; // String(lux)
     $x9 = $value_mahoa[8]; // String(mois)
 
-    $sql = "UPDATE CONTROL SET Den1 = $x1";
+    $sql = "UPDATE STATUS SET Trang_thai_den = $x1";
     if ($result = $db->query($sql)) {
         // $result->free_result();
     }
 
-    $sql = "UPDATE CONTROL SET Ps1 = $x2";
+    $sql = "UPDATE STATUS SET Trang_thai_phunsuong = $x2";
     if ($result = $db->query($sql)) {
         // $result->free_result();
     }
 
-    $sql = "UPDATE CONTROL SET Bom1 = $x3";
+    $sql = "UPDATE STATUS SET Trang_thai_maybom = $x3";
     if ($result = $db->query($sql)) {
         // $result->free_result();
     }
 
-    $sql = "UPDATE CONTROL SET Rc1 = $x4";
+    $sql = "UPDATE STATUS SET Trang_thai_RC = $x4";
     if ($result = $db->query($sql)) {
         // $result->free_result();
     }

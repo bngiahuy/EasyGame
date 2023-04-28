@@ -6,7 +6,7 @@ require_once("servers/Database.php");
 $db = Database::getInstance();
 
 // if (isset($_GET('table'))) {
-$table = $_GET('table');
+$table = $_GET['table'];
 
 $start = date("Y-m-d 00:00:00");
 $end = date("Y-m-d 23:59:59");

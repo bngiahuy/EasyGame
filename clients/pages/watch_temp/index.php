@@ -318,7 +318,18 @@ $db = Database::getInstance();
                     const char_data_path = "/EasyGame/clients/pages/";
 
                     function refreshData() {
-                        $('#attending_tbl').load(char_data_path + 'one_day_temp.php', "T_TEMPERATURE");
+                        $.ajax({
+                            type: 'get',
+                            url: char_data_path + 'one_day_temp.php',
+                            data: {
+                                table: 'T_TEMPERATURE'
+                            },
+                            dataType: 'text',
+                            success: function(data) {
+                                $('#attending_tbl').html(data);
+                            }
+                        })
+                        // $('#attending_tbl').load(char_data_path + 'one_day_temp.php', "T_TEMPERATURE");
                     }
 
                     function get_day_stat() {
@@ -331,11 +342,11 @@ $db = Database::getInstance();
                             dataType: 'html',
                             success: function(data) {
                                 var vals = data.split(",");
-                                // console.log(vals[0]);
-                                // console.log(vals[1]);
-                                // console.log(vals[2]);
-                                // console.log(vals[3]);
-                                // console.log(vals[4]);
+                                console.log(vals[0]);
+                                console.log(vals[1]);
+                                console.log(vals[2]);
+                                console.log(vals[3]);
+                                console.log(vals[4]);
                                 document.getElementById("min_temp").innerHTML = vals[0] + "&deg;C";
                                 document.getElementById("min_time").innerHTML = vals[1];
                                 document.getElementById("max_temp").innerHTML = vals[2] + "&deg;C";
