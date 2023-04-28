@@ -8,14 +8,6 @@ if (!isset($_SESSION["username"])) {
 // include("servers/connection.php");
 require_once("servers/Database.php");
 $db = Database::getInstance();
-$query = "SELECT * from AUTO";
-$result = $db->query($query);
-while ($row = $result->fetch_assoc()) {
-    $t = $row["Temperature"];
-    $h = $row["Humidity"];
-    $m = $row["Mois"];
-    $l = $row["Light"];
-}
 
 $query = "SELECT Den1, Bom1, Ps1, Rc1 from CONTROL";
 $result = $db->query($query);
@@ -385,38 +377,38 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     <br><br><br>
                     <div class="hide" id="auto">
 
-                        <div class="col-lg-3 pull-right">
-                            <div class="input-group pull-right">
-                                <span class="input-group-addon"><?php echo $lang2['cuongdosang1'] ?> </span>
-                                <input id="filter" type="text" class="form-control" name="l2">
-                                <form class="box" action="database/submit1.php" method="post">
+                        <form action="submit1.php" method="POST">
+                            <div class="col-lg-3 pull-right">
+                                <div class="input-group pull-right">
+                                    <span class="input-group-addon"><?php echo $lang2['cuongdosang1'] ?> </span>
+                                    <input id="filter" type="text" class="form-control" name="l2">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3 pull-right">
-                            <div class="input-group pull-right">
-                                <span class="input-group-addon"><?php echo $lang2['doamdat1'] ?> </span>
-                                <input id="filter" type="text" class="form-control" name="m2">
+                            <div class="col-lg-3 pull-right">
+                                <div class="input-group pull-right">
+                                    <span class="input-group-addon"><?php echo $lang2['doamdat1'] ?> </span>
+                                    <input id="filter" type="text" class="form-control" name="m2">
 
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3 pull-right">
-                            <div class="input-group pull-right">
-                                <span class="input-group-addon"><?php echo $lang2['doamkhongkhi1'] ?> </span>
-                                <input id="filter" type="text" class="form-control" name="h2">
+                            <div class="col-lg-3 pull-right">
+                                <div class="input-group pull-right">
+                                    <span class="input-group-addon"><?php echo $lang2['doamkhongkhi1'] ?> </span>
+                                    <input id="filter" type="text" class="form-control" name="h2">
 
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-3 pull-right">
-                            <div class="input-group pull-right ">
-                                <span class="input-group-addon"><?php echo $lang2['nhietdo1'] ?></span>
+                            <div class="col-lg-3 pull-right">
+                                <div class="input-group pull-right ">
+                                    <span class="input-group-addon"><?php echo $lang2['nhietdo1'] ?></span>
 
-                                <input id="filter" type="text" class="form-control" name="t2">
+                                    <input id="filter" type="text" class="form-control" name="t2">
 
+                                </div>
                             </div>
-                        </div>
-                        <br> <br> <br>
-                        <input type="submit" class="btn btn-success btn-sm" name="submit" value="<?php echo $lang3['set'] ?>">
+                            <br> <br> <br>
+                            <input type="submit" class="btn btn-success btn-sm" name="auto_submit" value="<?php echo $lang3['set'] ?>">
                         </form>
                     </div>
                 </div>
