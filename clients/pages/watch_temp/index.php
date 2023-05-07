@@ -28,6 +28,7 @@ $db = Database::getInstance();
     <link rel="icon" href="http://icons.iconarchive.com/icons/bokehlicia/captiva/128/rocket-icon.png" type="image/x-icon" />
     <!-- Bootstrap Core CSS -->
     <link href="../../base/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../base/css/style.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="../../base/css/custom.css" rel="stylesheet">
@@ -91,6 +92,49 @@ $db = Database::getInstance();
                             <ul class="dropdown-menu">
                                 <li><a href="../dashboard/dangxuat.php"><?php echo $lang2['logout'] ?></a></li>
 
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- Notification -->
+                    <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Thông báo </div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống</span>Nhiệt độ đang tăng nhanh. Cây cần bạn điều chỉnh nhiệt độ.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống </span>Bạn vừa điều chỉnh vòi phun sương.
+                                                        <div class="notification-date">50 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống</span> Độ ẩm đang rất thấp.
+                                                        <div class="notification-date">3 hours ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li>
+                                    <div class="list-footer"> <a href="#">Xem tất cả các thông báo</a></div>
+                                </li>
                             </ul>
                         </li>
                     </ul>
