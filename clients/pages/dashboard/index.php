@@ -780,6 +780,23 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
             </div>
         </div>
     </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    Made by <a href="https://www.facebook.com/minhnghiasd">Minh Nghia</a>.
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="text-md-right footer-links d-none d-sm-block">
+                    <a href="javascript: void(0);">About</a>
+                    <a href="javascript: void(0);">Support</a>
+                    <a href="javascript: void(0);">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="../../base/js/jquery.js"></script>
     <script src="jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->

@@ -8,9 +8,11 @@ include("servers/language/config.php");
 
 <head>
     <title><?php echo $lang['title'] ?></title>
-    <link rel="stylesheet" type='text/css' href="base/less/master.css"/>
+    <!-- <link rel="icon" href="image/main.jpg" type="image/x-icon" /> -->
+    <link rel="stylesheet" type='text/css' href="less/master.css"/>
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
 </head>
 
 <body>
