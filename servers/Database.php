@@ -1,5 +1,5 @@
 <?php
-require("connection.php");
+
 class Database
 {
     private static $instance = null;
@@ -15,8 +15,14 @@ class Database
 
     private function __construct()
     {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "EASYGAME_SMARTFARM";
+
         // Create connection
-        $this->conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+        $this->conn = new mysqli($servername, $username, $password, $dbname);
+
         // Check connection
         if ($this->conn->connect_error) {
             die("Connection failed: " . $this->conn->connect_error);

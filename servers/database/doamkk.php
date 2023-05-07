@@ -1,8 +1,8 @@
 <?php
-require_once("../Database.php");
-$db = Database::getInstance();
-$query = "SELECT * from DISPLAY";
-$result = $db->query($query);
+include "../connection.php";
+
+$query = "SELECT * from display";
+$result = $conn->query($query);
 while ($row = $result->fetch_assoc()) {
-	echo $row["Humidity"] . "%";
+	echo $row["Humidity1"] . "%";
 };

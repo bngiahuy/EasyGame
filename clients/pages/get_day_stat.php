@@ -1,9 +1,7 @@
 <?php
 set_include_path($_SERVER['DOCUMENT_ROOT'] . "/EasyGame");
 
-// include_once 'servers/connection.php';
-require_once("servers/Database.php");
-$db = Database::getInstance();
+include_once 'servers/connection.php';
 if (isset($_POST['table'])) {
     $table = $_POST['table'];
 
@@ -12,8 +10,7 @@ if (isset($_POST['table'])) {
     // GET MIN VALUE, DATE
     // $query = "SELECT value, date FROM {$table} WHERE date BETWEEN '{$start}' AND '{$end}'";
     $query = "SELECT value, date from {$table} where value = (select min(value) from {$table}) and date BETWEEN '{$start}' AND '{$end}'";
-    $result = $db->query($query);
-    // $result = mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);
     // $get = mysqli_fetch_assoc($result);
     $min = null;
     $min_date = null;
@@ -39,9 +36,7 @@ if (isset($_POST['table'])) {
 
     // $query = "SELECT value, date FROM {$table} WHERE date BETWEEN '{$start}' AND '{$end}'";
     //echo $query;
-    $result = $db->query($query);
-
-    // $result = mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);
     $max = null;
     $max_date = null;
     if ($get = mysqli_fetch_assoc($result)) {
@@ -62,8 +57,7 @@ if (isset($_POST['table'])) {
 
     // GET AVERAGE
     $query = "SELECT AVG(value) AS ave FROM {$table} WHERE date BETWEEN '{$start}' AND '{$end}'";
-    // $result = mysqli_query($conn, $query);
-    $result = $db->query($query);
+    $result = mysqli_query($conn, $query);
     $get = mysqli_fetch_assoc($result);
     $ave = $get['ave'];
     $ave = number_format($ave, 2);

@@ -8,41 +8,181 @@ include("servers/language/config.php");
 
 <head>
     <title><?php echo $lang['title'] ?></title>
-    <link rel="icon" href="image/main.jpg" type="image/x-icon" />
-    <style type="text/css">
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-image: url(image/homepage.jpg);
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- <link rel="icon" href="image/main.jpg" type="image/x-icon" /> -->
+    <link rel="stylesheet" type='text/css' href="less/master.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
 </head>
 
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light text-dark mb-4" style="background-color: #b3ff99">
+    <header id="main-header">
+        <div class="container">
+            <h1>ĐỒ ÁN</h1>
+            <p>From EasyGame with love</p>
+        </div>
+    </header>
+
+    <!-- LogIn 1 -->
+    <section class="call-to-action">
+        <div class="cta-container cf">
+            <p>Hãy đăng nhập để điều khiển các thiết bị IoT</p>
+            <!-- ông nhập cái đường link đăng nhập ở đây nha!!! nhớ còn 1 link đăng nhập ở dưới nữa -->
+            <a class="btn" href="pages/login/"><?php echo $lang['login'] ?></a>
+        </div>
+    </section>
+    
+    <!-- Easy to connect Section -->
+    <section id="macbook">
+        <div class="container">
+            <h2>Điều khiển các thiết bị dễ dàng thông qua trang web.</h2>
+            <p>Nhờ điều khiển thiệt bị qua trang web nên chúng ta có thể điều khiển và theo dõi thiết bị mọi lúc, mọi nơi.</p>
+            <img src="images/macbookpro.png"/>
+        </div>
+    </section>
+    
+    <!-- Slider Section -->
+    <section class="slider-main">
+        <div id="left-arrow">
+            <a href="#" class="unslider-arrow prev">
+                <i class="fa fa-chevron-left fa-2x"></i>
+            </a>
+        </div>
+        <div id="right-arrow">
+            <a href="#" class="unslider-arrow next">
+                <i class="fa fa-chevron-right fa-2x"></i>
+            </a>
+        </div>
+        <div class="slider">
+            <ul>
+                <li class="slide" id="slide1">
+                    <h2>Chúng tôi là EasyGame Company</h2>
+                    <!-- <a class="btn" href="#">Button</a> -->
+                </li>
+                <li class="slide" id="slide2">
+                    <h2>Hãy trồng cây vì một môi trường xanh và đẹp</h2>
+                </li>
+                <li class="slide" id="slide3">
+                    <h2>Hệ thống Smart Garden</h2>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- 3 images about fruit Section -->
+    <section id="three-image">
+        <div class="container">
+            <header class="body-header">
+                <h2>Chọn nhiều loại cây trồng</h2>
+                <p>Bạn có thể chọn nhiều loại cây và có thể thêm các cây trồng bạn muốn vào bảng điều khiển.</p>
+            </header>
+            <article class="cf">
+                <div class="img-circle-div">
+                    <img src="images/caixanh.jpeg"/>
+                    <h3>Cải xanh</h3>
+                    <p>Theo Đông Y, cải xanh là loại rau được ví như cây thuốc vì chứa nhiều dinh dưỡng. Sau khi gieo hạt từ 30 - 40 ngày có thể thu hoạch.</p>
+                </div>
+                <div class="img-circle-div">
+                    <img src="images/cachua.jpg"/>
+                    <h3>Cà chua bi</h3>
+                    <p>Cà chua chín đỏ mọng chứa nhiều vitamin A, vitamin C và vitamin K tự nhiên. Sau khi gieo hạt từ 45 - 90 ngày có thể thu hoạch.</p>
+                </div>
+                <div class="img-circle-div">
+                    <img src="images/carot.jpeg"/>
+                    <h3>Cà rốt</h3>
+                    <p>Cà rốt là cây trồng có giá trị dinh dưỡng cao tốt cho sức khỏe và làm đẹp. Sau khi gieo hạt từ 100 - 130 ngày có thể thu hoạch.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+    
+    <!-- LogIn 2 -->
+    <section class="call-to-action cta-2">
+        <div class="cta-container cf">
+            <p>Bạn muốn điều khiển thiết bị? Đăng nhập nào!</p>
+            <!-- ông nhập cái đường link đăng nhập ở đây nha!!! nhớ còn 1 link đăng nhập ở dưới nữa -->
+            <a class="btn" href="pages/login/"><?php echo $lang['login'] ?></a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-boat">
+                <div class="gplus">
+                    <!-- Place this tag where you want the +1 button to render. -->
+                    <div class="g-plusone"></div>
+
+                    <!-- Place this tag after the last +1 button tag. -->
+                    <script type="text/javascript">
+                        (function() {
+                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                            po.src = 'https://apis.google.com/js/plusone.js';
+                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                        })();
+                    </script>
+                    </div>
+                <div class="facebook">
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                    <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                </div>
+            </div>
+            <div id="footer-text" class="small">
+            <p>Design by <a href="https://www.facebook.com/minhnghiasd" target="_blank">Minh Nghĩa</a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light text-dark mb-4" style="background-color: #b3ff99">
         <div class="container my-2 px-4 px-lg-5" text-center>
             <a class="navbar-brand fs-3 fw-bold" href="index.php">VƯỜN RAU TỰ ĐỘNG ỨNG DỤNG IOT</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-lg-0 mx-auto">
-                    <li class="nav-item"><a class="nav-link mx-3" href="#">Easy Game</a></li>
+                    <li class="nav-item"><a class="nav-link mx-3" href="#">L02 - Nhóm 6</a></li>
                     <li class="nav-item"><a class="nav-link active fw-semibold mx-3" aria-current="page" href="index.php"><?php echo $lang['home'] ?></a> </li>
                     <li class="nav-item"><a class="nav-link mx-3" href="https://cse.hcmut.edu.vn/">Khoa KH&KT Máy Tính</a></li>
                     <li class="nav-item"><a class="nav-link mx-3" href="pages/login/"><?php echo $lang['login'] ?></a></li>
                 </ul>
             </div>
         </div>
-    </nav>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    </nav> -->
+    <!-- Reference jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <!-- Reference Javascript, minify for production -->
+    <script type="text/javascript" src="js/jquery.event.move.js"></script>
+    <script type="text/javascript" src="js/jquery.event.swipe.js"></script>
+    <script type="text/javascript" src="js/unslider.js"></script>
+    <!-- Unslider script -->
+    <script>
+        $(document).ready(function () {
+            var unslider = $('.slider').unslider();
+            $('.unslider-arrow').click(function(event) {
+                event.preventDefault();
+                if ($(this).hasClass('next')) {
+                    unslider.data('unslider')['next']();  
+                } else {
+                    unslider.data('unslider')['prev']();  
+                };
+            });
+            var unslider = $('.slider').unslider();
+
+            unslider.on('movestart', function(e) {
+                if((e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY &&   e.distX > -e.distY)) {
+                    e.preventDefault();
+                }
+            });
+    });
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script> -->
 </body>
 
 </html>
