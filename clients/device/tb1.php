@@ -1,13 +1,12 @@
 <?php
-	set_include_path($_SERVER['DOCUMENT_ROOT'] . "/EasyGame");
-	include("servers/language/config.php");
-	require_once("servers/Database.php");
-	$db = Database::getInstance();	
+	include "../language/config.php";
+	include "../login/connection.php";	
 	$query ="SELECT * from status";					
-	$result = $db->query($query);	
+	$result = $conn->query($query);	
 	while($row = $result->fetch_assoc()) 
 	{			
         $t=$row["Den1"] ;	
 	};
 	if($t==0){echo  $lang3['dangtat'];};
 	if($t==1){echo  $lang3['dangbat'];};
+?>

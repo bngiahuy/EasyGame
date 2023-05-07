@@ -5,8 +5,6 @@ include "servers/language/config.php";
 if (!isset($_SESSION["username"])) {
     header("Location: ../../index.php");
 }
-require_once("servers/Database.php");
-$db = Database::getInstance();
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +23,7 @@ $db = Database::getInstance();
     <link rel="icon" href="http://icons.iconarchive.com/icons/bokehlicia/captiva/128/rocket-icon.png" type="image/x-icon" />
     <!-- Bootstrap Core CSS -->
     <link href="../../base/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../base/css/style.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="../../base/css/custom.css" rel="stylesheet">
@@ -58,6 +57,21 @@ $db = Database::getInstance();
         * {
             font-family: system-ui;
         }
+        .footer {
+            border-top: 1px solid rgba(152, 166, 173, .2);
+            padding: 14px 30px 14px;
+            color: #71748d;
+            background-color: #fff;
+            width: 100%;
+            /*position: absolute; bottom: 0;*/
+        }
+
+        .footer a {
+            color: #71748d;
+            margin-left: 1.5rem;
+            -webkit-transition: all .4s;
+            transition: all .4s;
+        }
     </style>
 
 </head>
@@ -84,6 +98,49 @@ $db = Database::getInstance();
                             <ul class="dropdown-menu">
                                 <li><a href="../dashboard/dangxuat.php"><?php echo $lang2['logout'] ?></a></li>
 
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- Notification -->
+                    <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Thông báo </div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống</span>Nhiệt độ đang tăng nhanh. Cây cần bạn điều chỉnh nhiệt độ.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống </span>Bạn vừa điều chỉnh vòi phun sương.
+                                                        <div class="notification-date">50 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống</span> Độ ẩm đang rất thấp.
+                                                        <div class="notification-date">3 hours ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li>
+                                    <div class="list-footer"> <a href="#">Xem tất cả các thông báo</a></div>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -134,9 +191,9 @@ $db = Database::getInstance();
                     </div>
                     <?php
                     // GET LAST TEMP
+                    include_once('servers/connection.php');
                     $query = "SELECT * from T_LIGHT";
-                    $result = $db->query($query);
-
+                    $result = $conn->query($query);
                     $row = $result->fetch_assoc();
                     $x = $row["value"];
 
@@ -249,7 +306,7 @@ $db = Database::getInstance();
                             <div class="box-body">
                                 <?php
                                 $query = "SELECT * FROM T_LIGHT ORDER BY id DESC LIMIT 10";
-                                $result = $db->query($query);
+                                $result = mysqli_query($conn, $query);
 
                                 $number = 1;
                                 echo '<table class="table table-hover table-condensed display" id="example2" cellspacing="0" width="100%">';
@@ -282,7 +339,7 @@ $db = Database::getInstance();
                             <div class="box-body">
                                 <?php
                                 $query = "SELECT * FROM T_LIGHT ORDER BY id DESC";
-                                $result = $db->query($query);
+                                $result = mysqli_query($conn, $query);
 
                                 $number = 1;
                                 echo '<table class="table table-hover table-condensed display" id="example" cellspacing="0" width="100%">';
@@ -318,18 +375,8 @@ $db = Database::getInstance();
                     const char_data_path = "/EasyGame/clients/pages/";
 
                     function refreshData() {
-                        $.ajax({
-                            type: 'get',
-                            url: char_data_path + 'one_day_temp.php',
-                            data: {
-                                table: 'T_LIGHT'
-                            },
-                            dataType: 'text',
-                            success: function(data) {
-                                $('#attending_tbl').html(data);
-                            }
-                        })
-                        // $('#attending_tbl').load(char_data_path + 'one_day_temp.php', "T_TEMPERATURE");
+                        $('#attending_tbl').load(char_data_path + 'one_day_temp.php', "T_LIGHT");
+
                     }
 
                     function get_day_stat() {
@@ -582,6 +629,21 @@ $db = Database::getInstance();
                         $("#wrapper").toggleClass("toggled");
                     });
                 </script>
+
+                <div class="footer">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            Made by <a href="https://www.facebook.com/minhnghiasd">EasyGame</a>.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                                <a href="javascript: void(0);">About</a>
+                                <a href="javascript: void(0);">Support</a>
+                                <a href="javascript: void(0);">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 </body>

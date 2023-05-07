@@ -8,6 +8,14 @@ if (!isset($_SESSION["username"])) {
 // include("servers/connection.php");
 require_once("servers/Database.php");
 $db = Database::getInstance();
+$query = "SELECT * from AUTO";
+$result = $db->query($query);
+while ($row = $result->fetch_assoc()) {
+    $t = $row["Temperature"];
+    $h = $row["Humidity"];
+    $m = $row["Mois"];
+    $l = $row["Light"];
+}
 
 $query = "SELECT Den1, Bom1, Ps1, Rc1 from CONTROL";
 $result = $db->query($query);
@@ -18,9 +26,6 @@ while ($row = $result->fetch_assoc()) {
     $x3 = $row["Rc1"];
 }
 
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-// }
 if (isset($_POST['den'])) {
     if ($x0 == 0) {
         $x0 = 1;
@@ -108,23 +113,26 @@ if (isset($_POST['offall'])) {
     }
 }
 
+$query = "SELECT `Manual_mode` from CONTROL";
+$result = $db->query($query);
+while ($row = $result->fetch_assoc()) {
+    $mode = $row["Manual_mode"];
+}
 ///
 
-if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
-    $query = "SELECT `Manual_mode` from CONTROL";
-    $result = $db->query($query);
-    while ($row = $result->fetch_assoc()) {
-        $mode = $row["Manual_mode"];
-    }
-
-    $sql = "UPDATE CONTROL SET Manual_mode = 1 - $mode";
+if (isset($_POST['ON1'])) {
+    if ($mode == 0) {
+        $mode = 1;
+    } else {
+        $mode = 0;
+    };
+    $sql = "UPDATE CONTROL SET Manual_mode = $mode";
     if ($result = $db->query($sql)) {
-        echo "<script>alert('Update successful. New mode: " . $mode . "');</script>";
     }
+    // $sql = "UPDATE mode SET Mode1 = $mode";
+    // if ($result = $db->query($sql)) {
+    // }
 }
-
-
-
 ?>
 
 
@@ -144,6 +152,7 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
     <link rel="icon" href="../../image/main.jpg" type="image/x-icon" />
     <!-- Bootstrap Core CSS -->
     <link href="../../base/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../base/css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -160,6 +169,21 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
     <style>
         * {
             font-family: system-ui;
+        }
+        .footer {
+            border-top: 1px solid rgba(152, 166, 173, .2);
+            padding: 14px 30px 14px;
+            color: #71748d;
+            background-color: #fff;
+            width: 100%;
+            /*position: absolute; bottom: 0;*/
+        }
+
+        .footer a {
+            color: #71748d;
+            margin-left: 1.5rem;
+            -webkit-transition: all .4s;
+            transition: all .4s;
         }
     </style>
 </head>
@@ -189,7 +213,52 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                             </ul>
                         </li>
                     </ul>
+                    <!-- Notification -->
+                    <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Thông báo </div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống</span>Nhiệt độ đang tăng nhanh. Cây cần bạn điều chỉnh nhiệt độ.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống </span>Bạn vừa điều chỉnh vòi phun sương.
+                                                        <div class="notification-date">50 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống</span> Độ ẩm đang rất thấp.
+                                                        <div class="notification-date">3 hours ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li>
+                                    <div class="list-footer"> <a href="#">Xem tất cả các thông báo</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
                 </div>
+                
                 <!-- /.navbar-collapse -->
             </div>
             <!-- /.container -->
@@ -287,12 +356,12 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 3000);
+                        }, 2000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "http://localhost/EasyGame/servers/database/nhietdo.php",
+                                url: "database/nhietdo.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -308,12 +377,12 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 3000);
+                        }, 2000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "http://localhost/EasyGame/servers/database/cuongdosang.php",
+                                url: "database/cuongdosang.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -329,12 +398,12 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 3000);
+                        }, 2000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "http://localhost/EasyGame/servers/database/doamkk.php",
+                                url: "database/doamkk.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -350,12 +419,12 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 3000);
+                        }, 2000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "http://localhost/EasyGame/servers/database/doamdat.php",
+                                url: "database/doamdat.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -371,44 +440,43 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                 <div class="row">
 
                     <form action="index.php" method="POST">
-                        <input type="hidden" name="mode_change" value="1">
                         <button style="width:90px;height:30px;" type="submit" class="btn btn-primary btn-sm" name="ON1" id="chonchedo">Thủ công</button>
                     </form>
                     <br><br><br>
                     <div class="hide" id="auto">
 
-                        <form action="submit1.php" method="POST">
-                            <div class="col-lg-3 pull-right">
-                                <div class="input-group pull-right">
-                                    <span class="input-group-addon"><?php echo $lang2['cuongdosang1'] ?> </span>
-                                    <input id="filter" type="text" class="form-control" name="l2">
-                                </div>
+                        <div class="col-lg-3 pull-right">
+                            <div class="input-group pull-right">
+                                <span class="input-group-addon"><?php echo $lang2['cuongdosang1'] ?> </span>
+                                <input id="filter" type="text" class="form-control" name="l2">
+                                <form class="box" action="database/submit1.php" method="post">
                             </div>
-                            <div class="col-lg-3 pull-right">
-                                <div class="input-group pull-right">
-                                    <span class="input-group-addon"><?php echo $lang2['doamdat1'] ?> </span>
-                                    <input id="filter" type="text" class="form-control" name="m2">
+                        </div>
+                        <div class="col-lg-3 pull-right">
+                            <div class="input-group pull-right">
+                                <span class="input-group-addon"><?php echo $lang2['doamdat1'] ?> </span>
+                                <input id="filter" type="text" class="form-control" name="m2">
 
-                                </div>
                             </div>
-                            <div class="col-lg-3 pull-right">
-                                <div class="input-group pull-right">
-                                    <span class="input-group-addon"><?php echo $lang2['doamkhongkhi1'] ?> </span>
-                                    <input id="filter" type="text" class="form-control" name="h2">
+                        </div>
+                        <div class="col-lg-3 pull-right">
+                            <div class="input-group pull-right">
+                                <span class="input-group-addon"><?php echo $lang2['doamkhongkhi1'] ?> </span>
+                                <input id="filter" type="text" class="form-control" name="h2">
 
-                                </div>
                             </div>
+                        </div>
 
-                            <div class="col-lg-3 pull-right">
-                                <div class="input-group pull-right ">
-                                    <span class="input-group-addon"><?php echo $lang2['nhietdo1'] ?></span>
+                        <div class="col-lg-3 pull-right">
+                            <div class="input-group pull-right ">
+                                <span class="input-group-addon"><?php echo $lang2['nhietdo1'] ?></span>
 
-                                    <input id="filter" type="text" class="form-control" name="t2">
+                                <input id="filter" type="text" class="form-control" name="t2">
 
-                                </div>
                             </div>
-                            <br> <br> <br>
-                            <input type="submit" class="btn btn-success btn-sm" name="auto_submit" value="<?php echo $lang3['set'] ?>">
+                        </div>
+                        <br> <br> <br>
+                        <input type="submit" class="btn btn-success btn-sm" name="submit" value="<?php echo $lang3['set'] ?>">
                         </form>
                     </div>
                 </div>
@@ -497,12 +565,12 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 3000);
+                        }, 2000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "http://localhost/EasyGame/clients/device/tb1.php",
+                                url: "device/tb1.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -531,12 +599,12 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 3000);
+                        }, 2000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "http://localhost/EasyGame/clients/device/tb2.php",
+                                url: "device/tb2.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -564,12 +632,12 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 3000);
+                        }, 2000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "http://localhost/EasyGame/clients/device/tb3.php",
+                                url: "device/tb3.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -596,12 +664,12 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     $(document).ready(function() {
                         setInterval(function() {
                             get_data()
-                        }, 3000);
+                        }, 2000);
 
                         function get_data() {
                             jQuery.ajax({
                                 type: "GET",
-                                url: "http://localhost/EasyGame/clients/device/tb4.php",
+                                url: "device/tb4.php",
                                 data: "",
                                 beforeSend: function() {},
                                 complete: function() {},
@@ -731,32 +799,88 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     document.getElementById('chonchedo').style.backgroundColor = mode1;
                 </script>
 
-                <!-- <script src="../jquery.min.js"></script> -->
+                <script src="../jquery.min.js"></script>
+                <script>
+                    $(document).ready(function() {
+                        setInterval(function() {
+                            get_data()
+                        }, 1000);
 
+                        function get_data() {
+                            jQuery.ajax({
+                                type: "GET",
+                                url: "schedule/checktime.php",
+                                data: "",
+                                beforeSend: function() {},
+                                complete: function() {},
+                                success: function(data) {
+                                    $("#timer").html(data);
+                                }
+                            });
+                        }
+                    });
+                </script>
+
+                <script>
+                    $(document).ready(function() {
+                        setInterval(function() {
+                            get_data()
+                        }, 1000);
+
+                        function get_data() {
+                            jQuery.ajax({
+                                type: "GET",
+                                url: "schedule2/checktime.php",
+                                data: "",
+                                beforeSend: function() {},
+                                complete: function() {},
+                                success: function(data) {
+                                    $("#timer").html(data);
+                                }
+                            });
+                        }
+                    });
+                </script>
             </div>
         </div>
     </div>
-    <script src="../../base/js/jquery.js"></script>
+
+    <div class="footer">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    Made by <a href="https://www.facebook.com/minhnghiasd">Minh Nghia</a>.
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="text-md-right footer-links d-none d-sm-block">
+                    <a href="javascript: void(0);">About</a>
+                    <a href="javascript: void(0);">Support</a>
+                    <a href="javascript: void(0);">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="base/js/jquery.js"></script>
     <script src="jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
     <!-- SWITCH SECTION -->
-    <link href="../../base/css/switch/bootstrap-switch.css" rel="stylesheet">
-    <script src="../../base/js/switch/highlight.js"></script>
-    <script src="../../base/js/switch/bootstrap-switch.js"></script>
-    <script src="../../base/js/switch/main.js"></script>
+    <link href="base/css/switch/bootstrap-switch.css" rel="stylesheet">
+    <script src="base/js/switch/highlight.js"></script>
+    <script src="base/js/switch/bootstrap-switch.js"></script>
+    <script src="base/js/switch/main.js"></script>
 
     <!-- GUAGE SECTION -->
-    <script src="../../base/js/guage/raphael-2.1.4.min.js"></script>
-    <script src="../../base/js/guage/justgage-1.1.0.min.js"></script>
+    <script src="base/js/guage/raphael-2.1.4.min.js"></script>
+    <script src="base/js/guage/justgage-1.1.0.min.js"></script>
     <!-- Menu Toggle Script -->
     <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
     <!-- Chart js library -->
-    <script src="../../base/js/chart/Chart.js"></script>
+    <script src="base/js/chart/Chart.js"></script>
     <!-- Slider -->
-    <script src="../../base/js/slider/freshslider.min.js"></script>
+    <script src="base/js/slider/freshslider.min.js"></script>
 
     <script>
         $("#menu-toggle").click(function(e) {

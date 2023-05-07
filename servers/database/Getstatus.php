@@ -1,10 +1,10 @@
 <?php
-// include "../connection.php";
-require_once("../Database.php");
-$db = Database::getInstance();
-$sql = "SELECT * from AUTO";
+include "../connection.php";
 
-$result = $db->query($sql);
+
+
+$query = "SELECT * from AUTO";
+$result = $conn->query($query);
 
 while ($row = $result->fetch_assoc()) {
 	$t1 = $row["Temperature"];
@@ -16,23 +16,23 @@ while ($row = $result->fetch_assoc()) {
 	$m1 = $row["Mois"];
 };
 
-$sql = "SELECT * from CONTROL";
-$result = $db->query($sql);
+$query = "SELECT * from CONTROL";
+$result = $conn->query($query);
 
 while ($row = $result->fetch_assoc()) {
-	if ($row["Manual_mode"] == 1) $mode1 = "manual1";
-	else if ($row["Manual_mode"] == 0) $mode1 = "auto1";
 	if ($row["Den1"] == 1) $den1 = "den1_on";
 	else $den1 = "den1_off";
-	if ($row["Ps1"] == 0) $ps1 = "ps1_off";
+	if ($row["Ps1"] == 0)   $ps1 = "ps1_off";
 	else $ps1 = "ps1_on";
 	if ($row["Bom1"] == 1) $bom1 = "bom1_on";
 	else $bom1 = "bom1_off";
-	if ($row["Rc1"] == 0) $rc1 = "rc1_off";
+	if ($row["Rc1"] == "0")   $rc1 = "rc1_off";
 	else $rc1 = "rc1_on";
+	if ($row["Manual_mode"] == 1) $mode1 = "manual1";
+	else $mode1 = "auto1";
 };
-// $sql = "SELECT * from CONTROL";
-// $result = $conn->query($sql);
+// $query = "SELECT * from CONTROL";
+// $result = $conn->query($query);
 
 // while ($row = $result->fetch_assoc()) {
 // 	if ($row["Manual_mode"] == 1) {
