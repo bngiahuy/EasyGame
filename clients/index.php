@@ -9,9 +9,9 @@ include("servers/language/config.php");
 <head>
     <title><?php echo $lang['title'] ?></title>
     <!-- <link rel="icon" href="image/main.jpg" type="image/x-icon" /> -->
-    <link rel="stylesheet" type='text/css' href="less/master.css"/>
+    <link rel="stylesheet" type='text/css' href="less/master.css" />
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
 </head>
 
@@ -32,16 +32,16 @@ include("servers/language/config.php");
             <a class="btn" href="pages/login/"><?php echo $lang['login'] ?></a>
         </div>
     </section>
-    
+
     <!-- Easy to connect Section -->
     <section id="macbook">
         <div class="container">
             <h2>Điều khiển các thiết bị dễ dàng thông qua trang web.</h2>
             <p>Nhờ điều khiển thiệt bị qua trang web nên chúng ta có thể điều khiển và theo dõi thiết bị mọi lúc, mọi nơi.</p>
-            <img src="images/macbookpro.png"/>
+            <img src="image/macbookpro.png" />
         </div>
     </section>
-    
+
     <!-- Slider Section -->
     <section class="slider-main">
         <div id="left-arrow">
@@ -69,7 +69,7 @@ include("servers/language/config.php");
             </ul>
         </div>
     </section>
-    <!-- 3 images about fruit Section -->
+    <!-- 3 image about fruit Section -->
     <section id="three-image">
         <div class="container">
             <header class="body-header">
@@ -78,24 +78,24 @@ include("servers/language/config.php");
             </header>
             <article class="cf">
                 <div class="img-circle-div">
-                    <img src="images/caixanh.jpeg"/>
+                    <img src="image/caixanh.jpeg" />
                     <h3>Cải xanh</h3>
                     <p>Theo Đông Y, cải xanh là loại rau được ví như cây thuốc vì chứa nhiều dinh dưỡng. Sau khi gieo hạt từ 30 - 40 ngày có thể thu hoạch.</p>
                 </div>
                 <div class="img-circle-div">
-                    <img src="images/cachua.jpg"/>
+                    <img src="image/cachua.jpg" />
                     <h3>Cà chua bi</h3>
                     <p>Cà chua chín đỏ mọng chứa nhiều vitamin A, vitamin C và vitamin K tự nhiên. Sau khi gieo hạt từ 45 - 90 ngày có thể thu hoạch.</p>
                 </div>
                 <div class="img-circle-div">
-                    <img src="images/carot.jpeg"/>
+                    <img src="image/carot.jpeg" />
                     <h3>Cà rốt</h3>
                     <p>Cà rốt là cây trồng có giá trị dinh dưỡng cao tốt cho sức khỏe và làm đẹp. Sau khi gieo hạt từ 100 - 130 ngày có thể thu hoạch.</p>
                 </div>
             </article>
         </div>
     </section>
-    
+
     <!-- LogIn 2 -->
     <section class="call-to-action cta-2">
         <div class="cta-container cf">
@@ -104,7 +104,7 @@ include("servers/language/config.php");
             <a class="btn" href="pages/login/"><?php echo $lang['login'] ?></a>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -116,56 +116,64 @@ include("servers/language/config.php");
                     <!-- Place this tag after the last +1 button tag. -->
                     <script type="text/javascript">
                         (function() {
-                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                            var po = document.createElement('script');
+                            po.type = 'text/javascript';
+                            po.async = true;
                             po.src = 'https://apis.google.com/js/plusone.js';
-                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                            var s = document.getElementsByTagName('script')[0];
+                            s.parentNode.insertBefore(po, s);
                         })();
                     </script>
-                    </div>
+                </div>
                 <div class="facebook">
                     <div id="fb-root"></div>
-                    <script>(function(d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id)) return;
-                        js = d.createElement(s); js.id = id;
-                        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));</script>
+                    <script>
+                        (function(d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));
+                    </script>
                     <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
                 </div>
             </div>
             <div id="footer-text" class="small">
-            <p>Design by <a href="https://www.facebook.com/minhnghiasd" target="_blank">Minh Nghĩa</a></p>
+                <p>Design by <a href="https://www.facebook.com/minhnghiasd" target="_blank">Minh Nghĩa</a></p>
             </div>
         </div>
     </footer>
     <!-- Reference jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+    </script>
     <!-- Reference Javascript, minify for production -->
     <script type="text/javascript" src="js/jquery.event.move.js"></script>
     <script type="text/javascript" src="js/jquery.event.swipe.js"></script>
     <script type="text/javascript" src="js/unslider.js"></script>
     <!-- Unslider script -->
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             var unslider = $('.slider').unslider();
             $('.unslider-arrow').click(function(event) {
                 event.preventDefault();
                 if ($(this).hasClass('next')) {
-                    unslider.data('unslider')['next']();  
+                    unslider.data('unslider')['next']();
                 } else {
-                    unslider.data('unslider')['prev']();  
+                    unslider.data('unslider')['prev']();
                 };
             });
             var unslider = $('.slider').unslider();
 
             unslider.on('movestart', function(e) {
-                if((e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY &&   e.distX > -e.distY)) {
+                if ((e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY)) {
                     e.preventDefault();
                 }
             });
-    });
+        });
     </script>
 </body>
 
