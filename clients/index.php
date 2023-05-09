@@ -70,7 +70,7 @@ include("servers/language/config.php");
         </div>
     </section>
     <!-- 3 image about fruit Section -->
-    <section id="three-image">
+    <section id="three-images">
         <div class="container">
             <header class="body-header">
                 <h2>Chọn nhiều loại cây trồng</h2>
