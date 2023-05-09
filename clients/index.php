@@ -69,6 +69,7 @@ include("servers/language/config.php");
             </ul>
         </div>
     </section>
+    
     <!-- 3 image about fruit Section -->
     <section id="three-images">
         <div class="container">
