@@ -144,6 +144,7 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
     <link rel="icon" href="../../image/main.jpg" type="image/x-icon" />
     <!-- Bootstrap Core CSS -->
     <link href="../../base/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../base/css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -186,6 +187,49 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                             <ul class="dropdown-menu">
                                 <li><a href="dangxuat.php"><?php echo $lang2['logout'] ?></a></li>
 
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- Notification -->
+                    <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Thông báo </div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống</span>Nhiệt độ đang tăng nhanh. Cây cần bạn điều chỉnh nhiệt độ.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống </span>Bạn vừa điều chỉnh vòi phun sương.
+                                                        <div class="notification-date">50 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống</span> Độ ẩm đang rất thấp.
+                                                        <div class="notification-date">3 hours ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li>
+                                    <div class="list-footer"> <a href="#">Xem tất cả các thông báo</a></div>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -736,6 +780,23 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
             </div>
         </div>
     </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    Made by <a href="https://www.facebook.com/minhnghiasd">Minh Nghia</a>.
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="text-md-right footer-links d-none d-sm-block">
+                    <a href="javascript: void(0);">About</a>
+                    <a href="javascript: void(0);">Support</a>
+                    <a href="javascript: void(0);">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="../../base/js/jquery.js"></script>
     <script src="jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
