@@ -157,7 +157,17 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
 
     <!-- Slider -->
     <link href="../../base/css/slider/freshslider.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 48
+        }
+    </style>
     <style>
         * {
             font-family: system-ui;
@@ -201,15 +211,15 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                                         <div class="list-group">
                                             <a href="#" class="list-group-item list-group-item-action active">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống</span>Nhiệt độ đang tăng nhanh. Cây cần bạn điều chỉnh nhiệt độ.
+                                                    <div class="notification-list-user-img"><img src="../../base/img/alert.png" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name ">Hệ thống</span>Nhiệt độ đang tăng nhanh. Cây cần bạn điều chỉnh nhiệt độ.
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-img"><img src="../../base/img/alert.png" alt="" class="user-avatar-md rounded-circle"></div>
                                                     <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống </span>Bạn vừa điều chỉnh vòi phun sương.
                                                         <div class="notification-date">50 min ago</div>
                                                     </div>
@@ -217,7 +227,7 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../../base/css/img/hethong.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-img"><img src="../../base/img/alert.png" alt="" class="user-avatar-md rounded-circle"></div>
                                                     <div class="notification-list-user-block"><span class="notification-list-user-name">Hệ thống</span> Độ ẩm đang rất thấp.
                                                         <div class="notification-date">3 hours ago</div>
                                                     </div>
