@@ -46,7 +46,7 @@ include("servers/language/config.php");
     </section>
 
     <!-- Slider Section -->
-    <section class="slider-main">
+    <!-- <section class="slider-main">
         <div id="left-arrow">
             <a href="#" class="unslider-arrow prev">
                 <i class="fa fa-chevron-left fa-2x"></i>
@@ -61,7 +61,6 @@ include("servers/language/config.php");
             <ul>
                 <li class="slide" id="slide1">
                     <h2>Chúng tôi là EasyGame Company</h2>
-                    <!-- <a class="btn" href="#">Button</a> -->
                 </li>
                 <li class="slide" id="slide2">
                     <h2>Hãy trồng cây vì một môi trường xanh và đẹp</h2>
@@ -71,7 +70,7 @@ include("servers/language/config.php");
                 </li>
             </ul>
         </div>
-    </section>
+    </section> -->
     <section id="summary">
         <div class="container">
             <h2>Giao diện khác biệt</h2>
