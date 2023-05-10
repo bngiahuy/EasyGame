@@ -192,7 +192,7 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     </ul>
                     <!-- Notification -->
                     <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item dropdown notification">
+                        <li class="nav-item dropdown notification">
                             <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
                             <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
                                 <li>
@@ -226,7 +226,7 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                                         </div>
                                     </div>
                                 </li>
-                                
+
                                 <li>
                                     <div class="list-footer"> <a href="#">Xem tất cả các thông báo</a></div>
                                 </li>
@@ -420,40 +420,50 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
                     </form>
                     <br><br><br>
                     <div class="hide" id="auto">
+                        <?php
+                        $sql = "SELECT * FROM AUTO";
+                        if ($result = $db->query($sql)) {
+                            while ($row = $result->fetch_assoc()) {
 
-                        <form action="submit1.php" method="POST">
-                            <div class="col-lg-3 pull-right">
-                                <div class="input-group pull-right">
-                                    <span class="input-group-addon"><?php echo $lang2['cuongdosang1'] ?> </span>
-                                    <input id="filter" type="text" class="form-control" name="l2">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 pull-right">
-                                <div class="input-group pull-right">
-                                    <span class="input-group-addon"><?php echo $lang2['doamdat1'] ?> </span>
-                                    <input id="filter" type="text" class="form-control" name="m2">
+                        ?>
+                                <form action="submit1.php" method="POST">
+                                    <div class="col-lg-3 pull-right">
+                                        <div class="input-group pull-right">
+                                            <span class="input-group-addon"><?php echo $lang2['cuongdosang1'] ?> </span>
+                                            <input id="filter" type="text" class="form-control" name="l2" placeholder=<?php echo $row['Light'] ?>>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 pull-right">
+                                        <div class="input-group pull-right">
+                                            <span class="input-group-addon"><?php echo $lang2['doamdat1'] ?> </span>
+                                            <input id="filter" type="text" class="form-control" name="m2" placeholder=<?php echo $row['Mois'] ?>>
 
-                                </div>
-                            </div>
-                            <div class="col-lg-3 pull-right">
-                                <div class="input-group pull-right">
-                                    <span class="input-group-addon"><?php echo $lang2['doamkhongkhi1'] ?> </span>
-                                    <input id="filter" type="text" class="form-control" name="h2">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 pull-right">
+                                        <div class="input-group pull-right">
+                                            <span class="input-group-addon"><?php echo $lang2['doamkhongkhi1'] ?> </span>
+                                            <input id="filter" type="text" class="form-control" name="h2" placeholder=<?php echo $row['Humidity'] ?>>
 
-                                </div>
-                            </div>
+                                        </div>
+                                    </div>
 
-                            <div class="col-lg-3 pull-right">
-                                <div class="input-group pull-right ">
-                                    <span class="input-group-addon"><?php echo $lang2['nhietdo1'] ?></span>
+                                    <div class="col-lg-3 pull-right">
+                                        <div class="input-group pull-right ">
+                                            <span class="input-group-addon"><?php echo $lang2['nhietdo1'] ?></span>
 
-                                    <input id="filter" type="text" class="form-control" name="t2">
+                                            <input id="filter" type="text" class="form-control" name="t2" placeholder=<?php echo $row['Temperature'] ?>>
 
-                                </div>
-                            </div>
+                                        </div>
+                                    </div>
+
+                            <?php
+                            }
+                        }
+                            ?>
                             <br> <br> <br>
                             <input type="submit" class="btn btn-success btn-sm" name="auto_submit" value="<?php echo $lang3['set'] ?>">
-                        </form>
+                                </form>
                     </div>
                 </div>
 
@@ -785,7 +795,7 @@ if (isset($_POST['mode_change']) && isset($_POST['ON1'])) {
     <div class="footer">
         <div class="row">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    Made by <a href="https://www.facebook.com/minhnghiasd">Minh Nghia</a>.
+                Made by <a href="https://www.facebook.com/minhnghiasd">Minh Nghia</a>.
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="text-md-right footer-links d-none d-sm-block">

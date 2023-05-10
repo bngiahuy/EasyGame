@@ -25,6 +25,21 @@ if (isset($_POST["auto_submit"])) {
     if ($db->query($sql) === TRUE) {
     }
 
+    $sql = "UPDATE DISPLAY SET Temperature = $t2";
+    if ($db->query($sql) === TRUE) {
+    }
+
+    $sql = "UPDATE DISPLAY SET Light = $l2";
+    if ($db->query($sql) === TRUE) {
+    }
+
+    $sql = "UPDATE DISPLAY SET Humidity= $h2";
+    if ($db->query($sql) === TRUE) {
+    }
+
+    $sql = "UPDATE DISPLAY SET Mois = $m2";
+    if ($db->query($sql) === TRUE) {
+    }
     $query = "SELECT `Manual_mode` from CONTROL";
     $result = $db->query($query);
     while ($row = $result->fetch_assoc()) {
