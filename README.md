@@ -13,6 +13,12 @@ Vô trình duyệt gõ http://localhost/EasyGame, web sẽ tự điều hướng
   Password: admin
 
 
-Bên server để liên kết với các thiết bị Adruino thì copy đường dẫn của file 'getData.php' trong folder 'servers/data' và thay ở trong file code của Adruino.
+Bên server để liên kết với các thiết bị Adruino thì copy đường dẫn của file 'getData.php' trong folder 'servers/data' và thay ở trong file code của Adruino. Thông tin về thiết bị IoT được ghi hết trong file báo cáo .pdf. 
 
-Phần hướng dẫn tiếp theo hãy chờ vài ngày update cái file md này đã do toi cũng chưa rành kết nối với thiết bị :disappointed_relieved: 🤡
+Vì nhóm sử dụng thiết bị khác với thiết bị bên nhà trường cấp cho nhưng về lý thuyết thì chức năng đều y hệt nhau. Duy nhất chỉ khác cách implement bên Adruino và send API tới server. (ở trong folder Adruino có 2 file là `Demo_Master_PHP.ino` và `Node1.ino` thì `Demo_Master_PHP.ino` là code dành cho thiết bị trung gian (cũng có ghi lại trong báo cáo), các nhóm khác hình như không có sử dụng thiết bị này. Cho nên source code này cần rất nhiều sự thay đổi về backend lẫn bên thiết bị nếu muốn dùng lại cho project khác.
+
+Kết quả trang web: 
+
+- Chức năng `auto` chưa fix xong, sau khi set thì các ngưỡng giá trị cho các thiết bị trong db chưa tự động cập nhật lại và send ngược về thiết bị.
+
+- Chức năng thông báo khi vượt ngưỡng chưa hiện thực.
